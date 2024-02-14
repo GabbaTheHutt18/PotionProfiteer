@@ -33,7 +33,7 @@ public class SpawnResources : MonoBehaviour
                 int y = Random.Range(y_min, y_max);
 
                 GameObject element = Instantiate(rarities[index], this.gameObject.transform);
-                element.transform.position = new Vector3(x, y, 0);
+                element.transform.position = new Vector3(x, y, -1);
             }
             index++;
             loop = loop / 2;
