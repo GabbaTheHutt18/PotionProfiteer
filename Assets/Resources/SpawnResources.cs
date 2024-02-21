@@ -22,7 +22,7 @@ public class SpawnResources : MonoBehaviour
     void Start()
     {
         GameObject[] rarities = { common, rare, epic, legendary };
-        int loop = 16;
+        int loop = 8;
         int index = 0;
 
         for (int r = 0; r < 4; r++)
@@ -36,7 +36,7 @@ public class SpawnResources : MonoBehaviour
                 element.transform.position = new Vector3(x, y, -1);
             }
             index++;
-            loop = loop / 2;
+            loop = loop - 2;
         }
     }
 

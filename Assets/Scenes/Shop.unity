@@ -123,6 +123,71 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &69468275
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 339801389866101133, guid: d0cee1523f765264b9a812e783d4f416, type: 3}
+      propertyPath: m_Name
+      value: Interactable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116731946576454137, guid: d0cee1523f765264b9a812e783d4f416, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 1218113812642384350, guid: fd4126c41a4c3e347a32b7ded29b5f8c, type: 3}
+    - target: {fileID: 3116731946576454137, guid: d0cee1523f765264b9a812e783d4f416, type: 3}
+      propertyPath: random_max
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156214675509858938, guid: d0cee1523f765264b9a812e783d4f416, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.453749
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156214675509858938, guid: d0cee1523f765264b9a812e783d4f416, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.8611312
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156214675509858938, guid: d0cee1523f765264b9a812e783d4f416, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156214675509858938, guid: d0cee1523f765264b9a812e783d4f416, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156214675509858938, guid: d0cee1523f765264b9a812e783d4f416, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156214675509858938, guid: d0cee1523f765264b9a812e783d4f416, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156214675509858938, guid: d0cee1523f765264b9a812e783d4f416, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156214675509858938, guid: d0cee1523f765264b9a812e783d4f416, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156214675509858938, guid: d0cee1523f765264b9a812e783d4f416, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156214675509858938, guid: d0cee1523f765264b9a812e783d4f416, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d0cee1523f765264b9a812e783d4f416, type: 3}
 --- !u!1 &369331696
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +261,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -2557,6 +2622,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3693282187359877773, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4593890222205864577, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 4593890222205864577, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.03
@@ -2610,3 +2683,4 @@ SceneRoots:
   - {fileID: 3017063912896404459}
   - {fileID: 776692009}
   - {fileID: 2116156555986822599}
+  - {fileID: 69468275}
