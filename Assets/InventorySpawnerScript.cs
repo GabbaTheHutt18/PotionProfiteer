@@ -6,10 +6,10 @@ public class InventorySpawnerScript : MonoBehaviour
 {
     public GameObject InventorySlot;
     LogicManagerScript LogicManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
 
     }
 

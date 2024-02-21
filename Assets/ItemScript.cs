@@ -11,7 +11,7 @@ public class ItemScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     public Image image;
     public TMP_Text text;
     public Vector2 PotionType;
-    public bool Plantable = false;
+
     // Start is called before the first frame update
     void Start()
     {

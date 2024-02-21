@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class GrindStoneScript : MonoBehaviour, IDropHandler
 {
     GameObject dropped = null;
-    ItemScript DragDrop;
+    PlantScript DragDrop;
     public TMP_Text ButtonText;
     public bool started = false;
     public bool pressed;
@@ -47,9 +47,10 @@ public class GrindStoneScript : MonoBehaviour, IDropHandler
             }
             if(mash >= maximum) {
                 started = false;
-                transform.GetChild(0).gameObject.GetComponent<ItemScript>().Plantable = true;
-                transform.GetChild(0).gameObject.GetComponent<Image>().sprite = Seeds;
-            
+                GameObject crushed = transform.GetChild(0).gameObject;
+                crushed.GetComponent<PlantScript>().ChangeToSeeds();
+                mash = mashDelay;
+                ButtonText.text = "Begin";
             }
         
         }
@@ -64,7 +65,7 @@ public class GrindStoneScript : MonoBehaviour, IDropHandler
         {
 
             dropped = eventData.pointerDrag;
-            DragDrop = dropped.GetComponent<ItemScript>();
+            DragDrop = dropped.GetComponent<PlantScript>();
             DragDrop.ParentAfterDrag = transform;
         }
 

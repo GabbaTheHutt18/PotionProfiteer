@@ -54,14 +54,15 @@ public class LogicManagerScript : MonoBehaviour
             Dialog.text = "sure";
         }
         Offer.text = "Price: " + Price;
-
+        WantToBarter = true;
     }
 
     public void Sold() {
         Coin += Price;
         Potions.Remove(SelectedPotion);
         CoinText.text = "Coin: " + Coin;
-        Price = 0; 
+        Price = 0;
+        WantToBarter = true;
     }
 
     public void Reject()
@@ -73,26 +74,37 @@ public class LogicManagerScript : MonoBehaviour
     {
         if (WantToBarter)
         {
-            int RandomInt = Random.Range(1, 10);
-            if (RandomInt % 3 == 0)
-            {
-                Dialog.text = "Sure!";
-                Price += Price * (Random.Range(1, 6));
-            }
-            else if (RandomInt == 7)
-            {
-                Dialog.text = "Ew no I don't want to pay for it anymore";
-                Price = 0;
-                WantToBarter = false; 
+            if (Price != 0) {
+                int RandomInt = Random.Range(1, 10);
+                if (RandomInt % 3 == 0)
+                {
+                    Dialog.text = "Sure!";
+                    float multiplier = Price / 100;
+                    int PriceIncrease = (int)(multiplier * Random.Range(10, 101));
+                    Price += Price + PriceIncrease;
+                }
+                else if (RandomInt == 7)
+                {
+                    Dialog.text = "Ew no I don't want to pay for it anymore";
+                    Price = 0;
+                    WantToBarter = false;
+                }
+                else
+                {
+                    Dialog.text = "No, I only want to pay this please :)";
+                    WantToBarter = false;
+                }
             }
             else
             {
-                Dialog.text = "No, I only want to pay this please :)";
+                Dialog.text = "Give me something I want to buy!";
             }
+            
         }
         else
         {
             Dialog.text = "No I don't want anything anymore :/";
+            Price = 0;
         }
 
         Offer.text = "Price: " + Price;

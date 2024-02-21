@@ -5,16 +5,19 @@ using UnityEngine.EventSystems;
 
 public class InventorySlotScript : MonoBehaviour, IDropHandler
 {
+    public int ChildCount;
     // Start is called before the first frame update
     void Start()
     {
-        
+        ChildCount = transform.childCount;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ChildCount = transform.childCount;
+        if (transform.childCount <= 0)
+        { Debug.Log("HELLO"); }
     }
 
     public void OnDrop(PointerEventData eventData)
