@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 7203900696766858039}
   - component: {fileID: 2602874587324812894}
   - component: {fileID: 3179134603338486620}
-  - component: {fileID: 3116731946576454137}
+  - component: {fileID: -3437462738967805932}
+  - component: {fileID: 1734708034781404896}
+  - component: {fileID: -1942069877003542018}
   m_Layer: 0
-  m_Name: Interactable 4
+  m_Name: Moving Interactable
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,7 +179,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.943377, y: 1.943377}
   m_EdgeRadius: 0
---- !u!114 &3116731946576454137
+--- !u!114 &-3437462738967805932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339801389866101133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd72d9b80f667854ba3e68a5666e7279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1734708034781404896
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,6 +203,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f272f38ff49a1344da7c1cb537708bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actions: 5
+  actions: 3
   drop: {fileID: 1218113812642384350, guid: 1f63d6f6539e25546a8c5fcc508d24ed, type: 3}
   random_max: 1
+--- !u!50 &-1942069877003542018
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339801389866101133}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
