@@ -10,14 +10,16 @@ public class HandBagScript : MonoBehaviour
     private bool inReach = false;
     private int resInArea = 0;
     [SerializeField] List<GameObject> grabable = new List<GameObject>();
-    public int HandBagLimit = 16;
+    public int HandBagLimit = 10;
+    GameObject InvManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvManager = GameObject.Find("HB_Inventory");
     }
-
+    
+    
     // Update is called once per frame
     void Update()
     {
@@ -31,7 +33,8 @@ public class HandBagScript : MonoBehaviour
             if (this.gameObject.transform.childCount < HandBagLimit)
             {
                 GameObject chosenElem = grabable[0];
-                HandBag.Add(chosenElem);
+                GameObject itemRef = chosenElem.gameObject;
+                InvManager.GetComponent<InventoryManager>().AddItem(itemRef);
                 chosenElem.transform.SetParent(this.gameObject.transform);
                 chosenElem.gameObject.SetActive(false);
                 grabable.Remove(chosenElem);

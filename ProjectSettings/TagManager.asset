@@ -43,3 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: HandBag UI
+    uniqueID: 2338321533
+    locked: 0
