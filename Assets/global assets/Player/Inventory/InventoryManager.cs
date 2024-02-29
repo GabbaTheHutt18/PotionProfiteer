@@ -6,36 +6,36 @@ using UnityEngine.UIElements;
 
 public class InventoryManager : MonoBehaviour
 {
-    public List<GameObject> HandBag = new List<GameObject>();
-    private GameObject grid;
-    private bool visible = false;
+    public List<GameObject> HandBag = new List<GameObject>(); // List of items in handbag
+    private GameObject grid; // The parent that contains the slots in a grid
+    private bool visible = false; // Toggle to define if the canvas is visible or not
     
-    public void AddItem(GameObject item)
+    public void AddItem(GameObject item) // Add's item to Inventory UI
     {
         int childnum = grid.transform.childCount;
-        GameObject gridspace = grid.transform.GetChild(0).gameObject;
+        GameObject gridspace = grid.transform.GetChild(0).gameObject; // Starts at the first child
         HandBag.Add(item);
-        for (int i = 0; i < childnum; i++)
+        for (int i = 0; i < childnum; i++) //Runs through the children to find the next one that's empty (using a bool inicator on the shildren)
         {
             Transform reference = grid.transform.GetChild(i);
             if (reference.GetComponent<ItemSlotScript>().empty == true)
             {
                 gridspace = reference.transform.gameObject;
-                i = childnum;
+                i = childnum; // ends loop early when an empty slot is found
             }
             
         }
-        gridspace.GetComponent<ItemSlotScript>().Set(item);
+        gridspace.GetComponent<ItemSlotScript>().Set(item); // allocates item to selected grid slot
 
         
     }
 
     public void RemoveItem(GameObject item)
     {
-        
+        // Work in progress
     }
     
-    void ToggleInventoryVisibility()
+    void ToggleInventoryVisibility() // Moves the grid to be in or out of frame depending on visibility toggle
     {
         GameObject gridElem = GameObject.Find("INV_Grid");
 
@@ -51,17 +51,17 @@ public class InventoryManager : MonoBehaviour
         }
     }
     
-    // Start is called before the first frame update
+    
     void Start()
     {
-        grid = GameObject.Find("INV_Grid");
+        grid = GameObject.Find("INV_Grid"); // reference to parent
         visible = false;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab)) // Toggles visibility
         {
             ToggleInventoryVisibility();
         }

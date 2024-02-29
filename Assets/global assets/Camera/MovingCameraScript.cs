@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class MovingCameraScript : MonoBehaviour
 {
-    [HideInInspector] public bool BoxBorderLeft = false;
-    [HideInInspector] public bool BoxBorderRight = false;
-    [HideInInspector] public bool BoxBorderUp = false;
-    [HideInInspector] public bool BoxBorderDown = false;
+    [HideInInspector] public bool BoxBorderLeft = false; // Used to detect left side movement
+    [HideInInspector] public bool BoxBorderRight = false; // Used to detect right side movement
+    [HideInInspector] public bool BoxBorderUp = false; // Used to detect top side movement
+    [HideInInspector] public bool BoxBorderDown = false; // Used to detect bottom side movement
     private GameObject player;
 
     void Start()
     {
-        player = GameObject.Find("Player").gameObject;
+        player = GameObject.Find("Player").gameObject; // Gets reference to player
     }
 
 
-    void FixedUpdate()
+    void FixedUpdate() // Checks for each of the 4 bool triggers and moves camera accordingly
     {
         if (BoxBorderLeft == true)
         {
