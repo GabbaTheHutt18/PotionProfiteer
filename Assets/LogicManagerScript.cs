@@ -41,20 +41,20 @@ public class LogicManagerScript : MonoBehaviour
         {
             Price = (int)(Price * 0.5);
             
-            Dialog.text = "Ew";
-            
+            Dialog.text = NPC_Script.SelectedDialogue[7];
+
         }
         else if (NPC_Script.favouritePotion == SelectedPotion)
         {
             Price *= 2;
-            Dialog.text = "yum";
+            Dialog.text = NPC_Script.SelectedDialogue[6];
         }
         else
         {
-            Dialog.text = "sure";
+            Dialog.text = NPC_Script.SelectedDialogue[5];
         }
         Offer.text = "Price: " + Price;
-        WantToBarter = true;
+        
     }
 
     public void Sold() {
@@ -76,34 +76,35 @@ public class LogicManagerScript : MonoBehaviour
         {
             if (Price != 0) {
                 int RandomInt = Random.Range(1, 10);
-                if (RandomInt % 3 == 0)
+                if (RandomInt % 2 == 0)
                 {
-                    Dialog.text = "Sure!";
+                    Dialog.text = NPC_Script.SelectedDialogue[0];
                     float multiplier = Price / 100;
                     int PriceIncrease = (int)(multiplier * Random.Range(10, 101));
                     Price += Price + PriceIncrease;
+                    WantToBarter = true;
                 }
                 else if (RandomInt == 7)
                 {
-                    Dialog.text = "Ew no I don't want to pay for it anymore";
+                    Dialog.text = NPC_Script.SelectedDialogue[1];
                     Price = 0;
                     WantToBarter = false;
                 }
                 else
                 {
-                    Dialog.text = "No, I only want to pay this please :)";
+                    Dialog.text = NPC_Script.SelectedDialogue[2];
                     WantToBarter = false;
                 }
             }
             else
             {
-                Dialog.text = "Give me something I want to buy!";
+                Dialog.text = NPC_Script.SelectedDialogue[3];
             }
             
         }
         else
         {
-            Dialog.text = "No I don't want anything anymore :/";
+            Dialog.text = NPC_Script.SelectedDialogue[4];
             Price = 0;
         }
 
