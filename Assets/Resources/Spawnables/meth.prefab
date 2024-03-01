@@ -145,4 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: INV_GL_Meth
   displayName: Meth
-  icon: {fileID: 21300000, guid: 7f98a299f6913ee419330dcf21ca8e58, type: 3}
+  icon: {fileID: 21300000, guid: 8f0b319b03f3a1240acb12519738e21a, type: 3}
