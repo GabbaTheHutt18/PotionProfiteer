@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SellingAndBartering.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/GrindingStation.unity
+    guid: 9745bd95dcd6f4949b190519228cee85
+  - enabled: 1
+    path: Assets/Scenes/NewSellingAndBartering.unity
+    guid: daf2b0474217aad4a8ca931a17827870
+  - enabled: 1
+    path: Assets/Scenes/OldShop.unity
+    guid: 72fdb2a54de49454fbac46092c2ecdc4
+  - enabled: 1
+    path: Assets/Scenes/HerbGarden.unity
+    guid: 0e9ccb70579849f40a061cccdb21af17
   m_configObjects: {}
