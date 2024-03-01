@@ -24,7 +24,6 @@ public class InventorySpawnerScript : MonoBehaviour
         LogicManager = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManagerScript>();
         foreach (var item in LogicManager.Potions)
         {
-            Debug.Log("hi");
             SpawnPotion(item);
         }
     }
