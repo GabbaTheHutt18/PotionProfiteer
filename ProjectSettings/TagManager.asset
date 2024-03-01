@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Interactable
   - Collectable
+  - Logic
+  - Manager
   layers:
   - Default
   - TransparentFX
