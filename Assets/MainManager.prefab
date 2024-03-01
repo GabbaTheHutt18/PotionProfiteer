@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6415280968055475355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3862944056916779397}
+  - component: {fileID: 5699484823275442131}
+  m_Layer: 0
+  m_Name: MainManager
+  m_TagString: Manager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3862944056916779397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6415280968055475355}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1066.9493, y: 473.25806, z: -6.636638}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5699484823275442131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6415280968055475355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3acf42b5b6f4b4ea5636fb8cefad11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePlant: 0
+  herbPlant: 0
+  icePlant: 0
+  cavePlant: 0
+  fireSeeds: 0
+  herbSeeds: 0
+  iceSeeds: 0
+  caveSeeds: 0
+  fireLiquid: 0
+  herbLiquid: 0
+  iceLiquid: 0
+  caveLiquid: 0
+  fireMineral: 0
+  herbMineral: 0
+  iceMineral: 0
+  caveMineral: 0
+  fireAnimal: 0
+  herbAnimal: 0
+  iceAnimal: 0
+  caveAnimal: 0
+  Potions: []
