@@ -6,24 +6,24 @@ using UnityEngine;
 
 public class LogicManagerScript : MonoBehaviour
 {
-    public List<Vector2> Potions = new List<Vector2>();
+    public List<Potion> Potions = new List<Potion>();
     public GameObject NPC;
     NPC_Script NPC_Script;
     bool WantToBarter = true;
     public int Price = 0;
     public int Coin = 0;
-    public Vector2 SelectedPotion;
+    public Potion SelectedPotion;
     public TMP_Text Offer;
     public TMP_Text Dialog;
     public TMP_Text CoinText;
+    MainManagerScript mainManagerScript;
     // Start is called before the first frame update
     void Awake()
     {
         GameObject _npc = Instantiate(NPC);
         NPC_Script = _npc.GetComponent<NPC_Script>();
-        Potions.Add(new Vector2(2, 2));
-        Potions.Add(new Vector2(4, 4));
-        Potions.Add(new Vector2(-3, 4));
+        mainManagerScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<MainManagerScript>();
+        Potions = mainManagerScript.Potions;
         CoinText.text = "Coin: " + Coin;
         
     }
@@ -36,15 +36,15 @@ public class LogicManagerScript : MonoBehaviour
 
     public void GetPrice()
     {
-        Price = (int)(Mathf.Abs(SelectedPotion.x)+ Mathf.Abs(SelectedPotion.y));
-        if (NPC_Script.hatedPotion == SelectedPotion)
+        Price = (int)(Mathf.Abs(SelectedPotion.PotionStats.x)+ Mathf.Abs(SelectedPotion.PotionStats.y));
+        if (NPC_Script.hatedPotion == SelectedPotion.PotionStats)
         {
             Price = (int)(Price * 0.5);
             
             Dialog.text = NPC_Script.SelectedDialogue[7];
 
         }
-        else if (NPC_Script.favouritePotion == SelectedPotion)
+        else if (NPC_Script.favouritePotion == SelectedPotion.PotionStats)
         {
             Price *= 2;
             Dialog.text = NPC_Script.SelectedDialogue[6];
@@ -59,6 +59,7 @@ public class LogicManagerScript : MonoBehaviour
 
     public void Sold() {
         Coin += Price;
+        mainManagerScript.Coin += Price;
         Potions.Remove(SelectedPotion);
         CoinText.text = "Coin: " + Coin;
         Price = 0;

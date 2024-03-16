@@ -44,9 +44,9 @@ public class HerbLogicManager : MonoBehaviour
     public void FireSeedsButtonPressed()
     { 
         int Planter = GetEmptyPlanter();
-        if (Planter != -1 && mainManagerScript.fireSeeds > 0)
+        if (Planter != -1 && mainManagerScript.ResourceInventory["fireSeeds"] > 0)
         {
-            mainManagerScript.fireSeeds -= 1;
+            mainManagerScript.ResourceInventory["fireSeeds"] -= 1;
             Button _seed = Instantiate(Seeds, Planters[Planter].transform.position, Planters[Planter].transform.rotation, Planters[Planter].transform);
             _seed.transform.GetComponent<SeedsScript>().PlantType = 0;
             _seed.transform.GetComponent<SeedsScript>().SeedsSprite = SeedSprite;
@@ -59,9 +59,9 @@ public class HerbLogicManager : MonoBehaviour
     public void HerbSeedsButtonPressed()
     {
         int Planter = GetEmptyPlanter();
-        if (Planter != -1 && mainManagerScript.herbSeeds > 0)
+        if (Planter != -1 && mainManagerScript.ResourceInventory["herbSeeds"] > 0)
         {
-            mainManagerScript.herbSeeds -= 1;
+            mainManagerScript.ResourceInventory["herbSeeds"] -= 1;
             Button _seed = Instantiate(Seeds, Planters[Planter].transform.position, Planters[Planter].transform.rotation, Planters[Planter].transform);
             _seed.transform.GetComponent<SeedsScript>().PlantType = 1;
             _seed.transform.GetComponent<SeedsScript>().SeedsSprite = SeedSprite;
@@ -73,9 +73,9 @@ public class HerbLogicManager : MonoBehaviour
     public void IceSeedsButtonPressed()
     {
         int Planter = GetEmptyPlanter();
-        if (Planter != -1 && mainManagerScript.iceSeeds > 0)
+        if (Planter != -1 && mainManagerScript.ResourceInventory["iceSeeds"] > 0)
         {
-            mainManagerScript.iceSeeds -= 1;
+            mainManagerScript.ResourceInventory["iceSeeds"] -= 1;
             Button _seed = Instantiate(Seeds, Planters[Planter].transform.position, Planters[Planter].transform.rotation, Planters[Planter].transform);
             _seed.transform.GetComponent<SeedsScript>().PlantType = 2;
             _seed.transform.GetComponent<SeedsScript>().SeedsSprite = SeedSprite;
@@ -86,9 +86,9 @@ public class HerbLogicManager : MonoBehaviour
     public void CaveSeedsButtonPressed() 
     {
         int Planter = GetEmptyPlanter();
-        if (Planter != -1 && mainManagerScript.caveSeeds > 0)
+        if (Planter != -1 && mainManagerScript.ResourceInventory["caveSeeds"] > 0)
         {
-            mainManagerScript.caveSeeds -= 1;
+            mainManagerScript.ResourceInventory["caveSeeds"] -= 1;
             Button _seed = Instantiate(Seeds, Planters[Planter].transform.position, Planters[Planter].transform.rotation, Planters[Planter].transform);
             _seed.transform.GetComponent<SeedsScript>().PlantType = 3;
             _seed.transform.GetComponent<SeedsScript>().SeedsSprite = SeedSprite;

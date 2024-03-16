@@ -38,11 +38,12 @@ public class InventorySpawnerScript : MonoBehaviour
     
     }
 
-    public void SpawnPotion(Vector2 PotionType)
+    public void SpawnPotion(Potion PotionType)
     {
 
         GameObject Potion = Instantiate(InventorySlot, transform.position, transform.rotation, this.gameObject.transform);
-        Potion.transform.GetChild(0).GetComponent<PotionScript>().PotionType = PotionType;
+        Potion.transform.GetChild(0).GetComponent<PotionScript>()._Potion = PotionType;
+        //Potion.transform.GetChild(0).GetComponent<PotionScript>().image.sprite = PotionType.PotionSprite;
 
     }
 }

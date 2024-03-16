@@ -36,16 +36,17 @@ public class SeedsScript : MonoBehaviour
             switch (PlantType)
             {
                 case 0:
-                    herbLogicManager.mainManagerScript.firePlant += 3;
+                    herbLogicManager.mainManagerScript.ResourceInventory["firePlant"] += 3;
+                    
                     break;
                 case 1:
-                    herbLogicManager.mainManagerScript.herbPlant += 3;
+                    herbLogicManager.mainManagerScript.ResourceInventory["herbPlant"] += 3;
                     break;
                 case 2:
-                    herbLogicManager.mainManagerScript.icePlant += 3;
+                    herbLogicManager.mainManagerScript.ResourceInventory["icePlant"] += 3;
                     break;
                 case 3:
-                    herbLogicManager.mainManagerScript.cavePlant += 3;
+                    herbLogicManager.mainManagerScript.ResourceInventory["cavePlant"] += 3;
                     break;
                 default:
                     break;

@@ -21,25 +21,25 @@ public class PlantSlotScript : MonoBehaviour, IDropHandler
         switch (PlantType)
         {
             case 0:
-                if (mainManagerScript.firePlant > 0 && transform.childCount < 1)
+                if (mainManagerScript.ResourceInventory["firePlant"]  > 0 && transform.childCount < 1)
                 {
                     SpawnPlants();
                 }
                 break;
             case 1:
-                if (mainManagerScript.herbPlant > 0 && transform.childCount < 1)
+                if (mainManagerScript.ResourceInventory["herbPlant"] > 0 && transform.childCount < 1)
                 {
                     SpawnPlants();
                 }
                 break;
             case 2:
-                if (mainManagerScript.icePlant > 0 && transform.childCount < 1)
+                if (mainManagerScript.ResourceInventory["icePlant"] > 0 && transform.childCount < 1)
                 {
                     SpawnPlants();
                 }
                 break;
             case 3:
-                if (mainManagerScript.cavePlant > 0 && transform.childCount < 1)
+                if (mainManagerScript.ResourceInventory["cavePlant"] > 0 && transform.childCount < 1)
                 {
                     SpawnPlants();
                 }

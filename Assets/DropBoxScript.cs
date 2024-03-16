@@ -38,7 +38,7 @@ public class DropBoxScript : MonoBehaviour, IDropHandler
     {
         if (transform.childCount > 0)
         {
-            LogicManager.SelectedPotion = gameObject.transform.GetChild(0).GetComponent<PotionScript>().PotionType;
+            LogicManager.SelectedPotion = gameObject.transform.GetChild(0).GetComponent<PotionScript>()._Potion;
             DestroyImmediate(gameObject.transform.GetChild(0).gameObject);
         }
         

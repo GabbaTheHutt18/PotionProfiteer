@@ -29,20 +29,20 @@ public class PlantScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         switch (PlantType)
         {
             case 0:
-                mainManagerScript.firePlant -= 1;
-                mainManagerScript.fireSeeds += 3;
+                mainManagerScript.ResourceInventory["firePlant"] -= 1;
+                mainManagerScript.ResourceInventory["fireSeeds"] += 3;
                 break;
             case 1:
-                mainManagerScript.herbPlant -= 1;
-                mainManagerScript.herbSeeds += 3;
+                mainManagerScript.ResourceInventory["herbPlant"] -= 1;
+                mainManagerScript.ResourceInventory["herbSeeds"] += 3;
                 break;
             case 2:
-                mainManagerScript.icePlant -= 1;
-                mainManagerScript.iceSeeds += 3;
+                mainManagerScript.ResourceInventory["icePlant"] -= 1;
+                mainManagerScript.ResourceInventory["iceSeeds"] += 3;
                 break;
             case 3:
-                mainManagerScript.cavePlant -= 1;
-                mainManagerScript.caveSeeds += 3;
+                mainManagerScript.ResourceInventory["cavePlant"] -= 1;
+                mainManagerScript.ResourceInventory["caveSeeds"] += 3;
                 break;
             default:
                 break;
