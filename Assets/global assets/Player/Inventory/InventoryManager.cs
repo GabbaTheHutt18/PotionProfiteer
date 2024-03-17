@@ -13,11 +13,11 @@ public class InventoryManager : MonoBehaviour
     public void AddItem(GameObject item) // Add's item to Inventory UI
     {
         int childnum = grid.transform.childCount;
-        GameObject gridspace = grid.transform.GetChild(0).gameObject; // Starts at the first child
+        GameObject gridspace = grid.transform.GetChild(0).GetChild(0).gameObject; // Starts at the first child
         HandBag.Add(item);
         for (int i = 0; i < childnum; i++) //Runs through the children to find the next one that's empty (using a bool inicator on the shildren)
         {
-            Transform reference = grid.transform.GetChild(i);
+            Transform reference = grid.transform.GetChild(i).GetChild(0);
             if (reference.GetComponent<ItemSlotScript>().empty == true)
             {
                 gridspace = reference.transform.gameObject;
@@ -32,7 +32,15 @@ public class InventoryManager : MonoBehaviour
 
     public void RemoveItem(GameObject item)
     {
-        // Work in progress
+        Debug.Log(item);
+        float posx = this.gameObject.transform.position.x + Random.Range(-0.1f, 0.1f);
+        float posy = this.gameObject.transform.position.y + Random.Range(-0.1f, 0.1f);
+
+        HandBag.Remove(item);
+        Transform PlayerT = item.transform.parent.parent;
+        item.transform.parent = transform.root.parent;
+        item.transform.position = PlayerT.position + new Vector3(posx, posy, 0);
+        item.SetActive(true);
     }
     
     void ToggleInventoryVisibility() // Moves the grid to be in or out of frame depending on visibility toggle
