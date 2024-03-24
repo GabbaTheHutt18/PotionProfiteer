@@ -74,14 +74,14 @@ public class MainManagerScript : MonoBehaviour
         Quests.Add(new Quest());
         Quests.Add(new Quest());
         Quests.Add(new Quest());
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
-            Quests.Add(new Quest());
             Quests[i].QuestID = i;
             Quests[i].QuestTitle = $"Quest Number {i}";
             Quests[i].QuestDescription = $"Quest Description {i}";
             Quests[i].QuestRequirement = $"Quest Needs {i}";
-            Quests[i].QuestReward = $"Quest Needs {i}";
+            Quests[i].QuestReward = $"Quest Requirements {i}";
+            Quests[i].QuestRequirements.Add("firePlant", 2);
         }
 
     }
@@ -97,6 +97,9 @@ public class MainManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+   
+
 }
 
 public class Potion
@@ -110,7 +113,7 @@ public class Quest
     public string QuestTitle;
     public string QuestDescription;
     public string QuestRequirement;
-    public Dictionary<string, int> QuestRequirements;
+    public Dictionary<string, int> QuestRequirements = new Dictionary<string, int>();
     public string QuestReward;
     public int QuestID;
     public bool QuestCompleted; 

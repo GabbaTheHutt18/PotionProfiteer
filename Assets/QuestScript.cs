@@ -12,11 +12,12 @@ public class QuestScript : MonoBehaviour
     public TMP_Text QuestDescription;
     public TMP_Text QuestRequirements;
     public TMP_Text QuestReward;
+    public MainManagerScript MainManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        MainManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<MainManagerScript>();
     }
 
     // Update is called once per frame
@@ -31,6 +32,7 @@ public class QuestScript : MonoBehaviour
         QuestDescription.text = QuestData.QuestDescription;
         QuestRequirements.text = QuestData.QuestRequirement;
         QuestReward.text = QuestData.QuestReward;
+        this.SendMessageUpwards("SelectedQuest", QuestData);
     }
 
 
