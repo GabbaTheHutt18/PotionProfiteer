@@ -12,7 +12,9 @@ public class ItemSlotScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     [HideInInspector] public bool empty;
     [HideInInspector] public Transform ParentAfterDrag;
     [HideInInspector] public Vector3 PositionAfterDrag;
-    [HideInInspector] private int SlotPosition;
+    // [HideInInspector] private int SlotPosition;
+    [HideInInspector] Vector3 offset;
+    [HideInInspector] public GameObject DropBoxRef;
 
     public void Set(GameObject item) // Sets the slot to inhabit/represent an item
     {
@@ -37,24 +39,30 @@ public class ItemSlotScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("beginDrag");
+
+        //Debug.Log("beginDrag");
         ParentAfterDrag = transform.parent;
         PositionAfterDrag = transform.position;
         // SlotPosition = transform.GetSiblingIndex();
-        transform.SetParent(transform.parent.parent.parent);
+        transform.SetParent(DropBoxRef.transform);
         transform.SetAsLastSibling();
+        this.gameObject.GetComponent<Image>().raycastTarget = false;
+
+        offset = transform.position - Input.mousePosition;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        transform.position = Input.mousePosition + offset;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("endDrag");
+        //Debug.Log("endDrag");
         transform.SetParent(ParentAfterDrag);
         transform.position = PositionAfterDrag;
         // transform.SetSiblingIndex(SlotPosition);
+        this.gameObject.GetComponent<Image>().raycastTarget = true;
     }
+    
 }

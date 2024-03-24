@@ -6,19 +6,21 @@ using UnityEngine.EventSystems;
 
 public class HandBag_DropBox : MonoBehaviour, IDropHandler
 {
-
+    [SerializeField] private InventoryManager inventoryManager;
     public void OnDrop(PointerEventData eventData) {
-        if (eventData != null)
+
+        ItemSlotScript droppedItem = eventData.pointerDrag.GetComponent<ItemSlotScript>();
+        GameObject itemref = droppedItem.referenceObj;
+
+        if (itemref != null) 
         {
-            GameObject invman = transform.parent.parent.gameObject;
+            inventoryManager.RemoveItem(itemref);
+            droppedItem.Reset();
             Debug.Log("Item Dropped!");
-
-            GameObject droppedItem = eventData.pointerDrag;
-            ItemSlotScript dItemslot = droppedItem.GetComponent<ItemSlotScript>();
-            GameObject itemref = dItemslot.referenceObj;
-
-            invman.GetComponent<InventoryManager>().RemoveItem(itemref);
-            dItemslot.Reset();
+        }
+        else
+        {
+            Debug.Log("twat");
         }
     }
 }

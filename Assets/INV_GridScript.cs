@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class INV_GridScript : MonoBehaviour, IDropHandler
+public class INV_GridScript : MonoBehaviour//, IDropHandler
 {
-   
+   /*
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData != null)
@@ -23,5 +23,5 @@ public class INV_GridScript : MonoBehaviour, IDropHandler
 
 
     }
-   
+   */
 }

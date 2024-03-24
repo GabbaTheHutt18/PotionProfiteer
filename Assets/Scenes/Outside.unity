@@ -214,6 +214,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &177325686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1695518876650006666, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+  m_PrefabInstance: {fileID: 1566697956}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6771624286d144286f8689b21c62fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &762994258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -271,6 +282,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b5921fc30f6c5b42802efa7ff0ab3cf, type: 3}
+--- !u!1 &889849987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1083246180298499082, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+  m_PrefabInstance: {fileID: 1566697956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &889849992
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889849987}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: a00f34ae22b66d5469f4761d0d5205b3, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: a00f34ae22b66d5469f4761d0d5205b3, type: 2}
+  - {fileID: 7400000, guid: 8bf7f99cf1dde794e8db8d8ae6086079, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1257246424
 GameObject:
   m_ObjectHideFlags: 0
@@ -4032,16 +4065,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -2, y: 2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -1, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -7444,7 +7467,7 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 499
+  - m_RefCount: 498
     m_Data: {fileID: 11400000, guid: ef71cdac8339ece4bb58e356b769104f, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 8861b5d6f12f4754a9c94c31d50eeb63, type: 2}
@@ -7491,7 +7514,7 @@ Tilemap:
   - m_RefCount: 48
     m_Data: {fileID: 11400000, guid: 62cde75854b2de44ca3af39c7786810e, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 499
+  - m_RefCount: 498
     m_Data: {fileID: -86155059, guid: 91b4e8e2b78a4144283d9714868f0cd6, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 99681819, guid: 91b4e8e2b78a4144283d9714868f0cd6, type: 3}
@@ -7538,7 +7561,7 @@ Tilemap:
   - m_RefCount: 48
     m_Data: {fileID: 1778232851, guid: 91b4e8e2b78a4144283d9714868f0cd6, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 708
+  - m_RefCount: 707
     m_Data:
       e00: 1
       e01: 0
@@ -7557,7 +7580,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 708
+  - m_RefCount: 707
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -7583,6 +7606,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1455558661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4244732769055430808, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+  m_PrefabInstance: {fileID: 1566697956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1566697956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7595,10 +7623,18 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 581863762969422854, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: DropBoxRef
+      value: 
+      objectReference: {fileID: 1455558661}
     - target: {fileID: 594265303201138794, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.029999971
       objectReference: {fileID: 0}
+    - target: {fileID: 710157729116812537, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: DropBoxRef
+      value: 
+      objectReference: {fileID: 1455558661}
     - target: {fileID: 919302318785748703, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.08
@@ -7627,10 +7663,50 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1302329301482743402, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1379.5033
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302329301482743402, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 926.3113
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302329301482743402, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 225.7555
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302329301482743402, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -8.8281
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412941258988971970, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: DropBoxRef
+      value: 
+      objectReference: {fileID: 1455558661}
+    - target: {fileID: 1457841251737268139, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: DropBoxRef
+      value: 
+      objectReference: {fileID: 1455558661}
+    - target: {fileID: 1695518876650006666, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: anim_in
+      value: 
+      objectReference: {fileID: 7400000, guid: a00f34ae22b66d5469f4761d0d5205b3, type: 2}
+    - target: {fileID: 1695518876650006666, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: anim_out
+      value: 
+      objectReference: {fileID: 7400000, guid: 8bf7f99cf1dde794e8db8d8ae6086079, type: 2}
+    - target: {fileID: 1835971037005335160, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: slot_num
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1877714424697809856, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1888350198808612601, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 177325686}
     - target: {fileID: 2127403692765849527, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.08
@@ -7663,6 +7739,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2248113140440604633, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: DropBoxRef
+      value: 
+      objectReference: {fileID: 1455558661}
     - target: {fileID: 2270370789814071681, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.08
@@ -7693,7 +7773,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3388272130913384817, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_Color.a
-      value: 0.42745098
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388272130913384817, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3578316744484630798, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_Pivot.x
@@ -7763,6 +7847,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4092023302052838850, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: DropBoxRef
+      value: 
+      objectReference: {fileID: 1455558661}
     - target: {fileID: 4153059012840263756, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.08
@@ -7817,7 +7905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4593890222205864577, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4593890222205864577, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7879,17 +7967,25 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5487919873881050472, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: DropBoxRef
+      value: 
+      objectReference: {fileID: 1455558661}
     - target: {fileID: 6697855569838009648, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0.7441
       objectReference: {fileID: 0}
     - target: {fileID: 6697855569838009648, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697855569838009648, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1247
+      value: -1300
       objectReference: {fileID: 0}
     - target: {fileID: 6697855569838009648, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.50728
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 6759901683492814817, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_Spacing.x
@@ -7963,10 +8059,22 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7608617174733984405, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: DropBoxRef
+      value: 
+      objectReference: {fileID: 1455558661}
     - target: {fileID: 7830388306605008524, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7941993479602052713, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: DropBoxRef
+      value: 
+      objectReference: {fileID: 1455558661}
+    - target: {fileID: 8220169311552306509, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: DropBoxRef
+      value: 
+      objectReference: {fileID: 1455558661}
     - target: {fileID: 8232469380491270433, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -8011,6 +8119,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8902196248375661907, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9144389542338450364, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.08
@@ -8042,7 +8154,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1083246180298499082, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 889849992}
   m_SourcePrefab: {fileID: 100100000, guid: d8cbf17f9ca5a4a46a7b086a592dc1c7, type: 3}
 --- !u!1 &1647430516
 GameObject:

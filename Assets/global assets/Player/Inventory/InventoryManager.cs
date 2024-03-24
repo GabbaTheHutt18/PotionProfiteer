@@ -9,7 +9,9 @@ public class InventoryManager : MonoBehaviour
     public List<GameObject> HandBag = new List<GameObject>(); // List of items in handbag
     private GameObject grid; // The parent that contains the slots in a grid
     private bool visible = false; // Toggle to define if the canvas is visible or not
-    
+    [SerializeField] private AnimationClip anim_in;
+    [SerializeField] private AnimationClip anim_out;
+
     public void AddItem(GameObject item) // Add's item to Inventory UI
     {
         int childnum = grid.transform.childCount;
@@ -33,13 +35,13 @@ public class InventoryManager : MonoBehaviour
     public void RemoveItem(GameObject item)
     {
         Debug.Log(item);
-        float posx = this.gameObject.transform.position.x + Random.Range(-0.1f, 0.1f);
-        float posy = this.gameObject.transform.position.y + Random.Range(-0.1f, 0.1f);
+        float posx = transform.parent.position.x + Random.Range(-2f, 2f);
+        float posy = transform.parent.position.y + Random.Range(-2f, 2f);
 
         HandBag.Remove(item);
         Transform PlayerT = item.transform.parent.parent;
         item.transform.parent = transform.root.parent;
-        item.transform.position = PlayerT.position + new Vector3(posx, posy, 0);
+        item.transform.position = new Vector3(posx, posy, -1);
         item.SetActive(true);
     }
     
@@ -49,12 +51,16 @@ public class InventoryManager : MonoBehaviour
 
         if (visible == false)
         {
-            gridElem.GetComponent<RectTransform>().localPosition = new Vector3(-690f, -4f, 0f);
+            //gridElem.GetComponent<RectTransform>().localPosition = new Vector3(-690f, -4f, 0f);
+            gridElem.GetComponent<Animation>().clip = anim_in;
+            gridElem.GetComponent<Animation>().Play();
             visible = true;
         }
         else if (visible == true)
         {
-            gridElem.GetComponent<RectTransform>().localPosition = new Vector3(-1300f, -4f, 0f);
+            //gridElem.GetComponent<RectTransform>().localPosition = new Vector3(-1300f, -4f, 0f);
+            gridElem.GetComponent<Animation>().clip = anim_out;
+            gridElem.GetComponent<Animation>().Play();
             visible = false;
         }
     }
