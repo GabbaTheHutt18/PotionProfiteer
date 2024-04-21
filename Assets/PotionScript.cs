@@ -9,11 +9,13 @@ public class PotionScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 {
     [HideInInspector] public Transform ParentAfterDrag;
     public Image image;
+    public Potion _Potion;
     public TMP_Text text;
     public Vector2 PotionType;
     // Start is called before the first frame update
     void Start()
     {
+        PotionType = _Potion.PotionStats;
         text.text = PotionType.ToString();
     }
 

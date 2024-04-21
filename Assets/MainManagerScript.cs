@@ -1,41 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainManagerScript : MonoBehaviour
 {
-    // Start is called before the first frame update
     public static MainManagerScript Instance;
-
-    public int firePlant = 0;
-    public int herbPlant = 0;
-    public int icePlant = 0;
-    public int cavePlant = 0;
-
-    public int fireSeeds;
-    public int herbSeeds;
-    public int iceSeeds;
-    public int caveSeeds;
-
-    public int fireLiquid = 0;
-    public int herbLiquid = 0;
-    public int iceLiquid = 0;
-    public int caveLiquid = 0;
-
-    public int fireMineral= 0;
-    public int herbMineral = 0;
-    public int iceMineral = 0;
-    public int caveMineral = 0;
-
-    public int fireAnimal = 0;
-    public int herbAnimal = 0;
-    public int iceAnimal = 0;
-    public int caveAnimal = 0;
+    public Dictionary<string, int> ResourceInventory = new Dictionary<string, int> {
+        ["firePlant"] = 0,
+        ["herbPlant"] = 0,
+        ["icePlant"] = 0,
+        ["cavePlant"] = 0,
+        ["fireSeeds"] = 0,
+        ["herbSeeds"] = 0,
+        ["iceSeeds"] = 0,
+        ["caveSeeds"] = 0,
+        ["fireLiquid"] = 0,
+        ["herbLiquid"] = 0,
+        ["iceLiquid"] = 0,
+        ["caveLiquid"] = 0,
+        ["fireMineral"] = 0,
+        ["herbMineral"] = 0,
+        ["iceMineral"] = 0,
+        ["caveMineral"] = 0,
+        ["fireAnimal"] = 0,
+        ["herbAnimal"] = 0,
+        ["iceAnimal"] = 0,
+        ["caveAnimal"] = 0,
+    };
 
     public bool explored = false; 
 
-    public List<Vector2> Potions;
-
+    public List<Potion> Potions = new List<Potion>();
+    public List<Quest> Quests = new List<Quest>();
+    public int Coin = 0; 
 
     private void Awake()
     {
@@ -58,17 +56,34 @@ public class MainManagerScript : MonoBehaviour
 
     void Start()
     {
-        fireSeeds = 20;
-        iceSeeds = 20;
-        herbSeeds = 20;
-        caveSeeds = 20;
-        firePlant = 5;
-        icePlant = 5;
-        cavePlant = 5;
-        herbPlant = 5;
-        Potions.Add(new Vector2(2, 2));
-        Potions.Add(new Vector2(4, 4));
-        Potions.Add(new Vector2(-3, 4));
+        ResourceInventory["fireSeeds"] = 20;
+        ResourceInventory["herbSeeds"] = 20;
+        ResourceInventory["iceSeeds"] = 20;
+        ResourceInventory["caveSeeds"] = 20;
+        ResourceInventory["firePlant"] = 5;
+        ResourceInventory["herbPlant"] = 5;
+        ResourceInventory["icePlant"] = 5;
+        ResourceInventory["cavePlant"] = 5;
+        Potions.Add(new Potion());
+        Potions.Add(new Potion());
+        Potions.Add(new Potion());
+        Potions[0].PotionStats = new Vector2(2, 2);
+        Potions[1].PotionStats = new Vector2(4, 4);
+        Potions[2].PotionStats= new Vector2(-3, 4);
+        
+        Quests.Add(new Quest());
+        Quests.Add(new Quest());
+        Quests.Add(new Quest());
+        for (int i = 0; i < 3; i++)
+        {
+            Quests[i].QuestID = i;
+            Quests[i].QuestTitle = $"Quest Number {i}";
+            Quests[i].QuestDescription = $"Quest Description {i}";
+            Quests[i].QuestRequirement = $"Quest Needs {i}";
+            Quests[i].QuestReward = $"Quest Requirements {i}";
+            Quests[i].QuestRequirements.Add("firePlant", 2);
+        }
+
     }
 
     // Update is called once per frame
@@ -76,4 +91,30 @@ public class MainManagerScript : MonoBehaviour
     {
         
     }
+
+
+    public void GoBackToShop()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+   
+
+}
+
+public class Potion
+{
+    public Vector2 PotionStats;
+    public Sprite PotionSprite;
+}
+
+public class Quest
+{
+    public string QuestTitle;
+    public string QuestDescription;
+    public string QuestRequirement;
+    public Dictionary<string, int> QuestRequirements = new Dictionary<string, int>();
+    public string QuestReward;
+    public int QuestID;
+    public bool QuestCompleted; 
 }
