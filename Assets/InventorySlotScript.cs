@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InventorySlotScript : MonoBehaviour, IDropHandler
 {
@@ -30,6 +31,7 @@ public class InventorySlotScript : MonoBehaviour, IDropHandler
                 GameObject dropped = eventData.pointerDrag;
                 PotionScript Potion = dropped.GetComponent<PotionScript>();
                 Potion.ParentAfterDrag = transform;
+                this.gameObject.GetComponent<Image>().raycastTarget = false;
             }
 
         }

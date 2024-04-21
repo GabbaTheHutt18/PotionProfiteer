@@ -9,15 +9,17 @@ public class InventoryManager : MonoBehaviour
     public List<GameObject> HandBag = new List<GameObject>(); // List of items in handbag
     private GameObject grid; // The parent that contains the slots in a grid
     private bool visible = false; // Toggle to define if the canvas is visible or not
-    
+    [SerializeField] private AnimationClip anim_in;
+    [SerializeField] private AnimationClip anim_out;
+
     public void AddItem(GameObject item) // Add's item to Inventory UI
     {
         int childnum = grid.transform.childCount;
-        GameObject gridspace = grid.transform.GetChild(0).gameObject; // Starts at the first child
+        GameObject gridspace = grid.transform.GetChild(0).GetChild(0).gameObject; // Starts at the first child
         HandBag.Add(item);
         for (int i = 0; i < childnum; i++) //Runs through the children to find the next one that's empty (using a bool inicator on the shildren)
         {
-            Transform reference = grid.transform.GetChild(i);
+            Transform reference = grid.transform.GetChild(i).GetChild(0);
             if (reference.GetComponent<ItemSlotScript>().empty == true)
             {
                 gridspace = reference.transform.gameObject;
@@ -32,7 +34,15 @@ public class InventoryManager : MonoBehaviour
 
     public void RemoveItem(GameObject item)
     {
-        // Work in progress
+        Debug.Log(item);
+        float posx = transform.parent.position.x + Random.Range(-2f, 2f);
+        float posy = transform.parent.position.y + Random.Range(-2f, 2f);
+
+        HandBag.Remove(item);
+        Transform PlayerT = item.transform.parent.parent;
+        item.transform.parent = transform.root.parent;
+        item.transform.position = new Vector3(posx, posy, -1);
+        item.SetActive(true);
     }
     
     void ToggleInventoryVisibility() // Moves the grid to be in or out of frame depending on visibility toggle
@@ -41,12 +51,16 @@ public class InventoryManager : MonoBehaviour
 
         if (visible == false)
         {
-            gridElem.GetComponent<RectTransform>().localPosition = new Vector3(-690f, -4f, 0f);
+            //gridElem.GetComponent<RectTransform>().localPosition = new Vector3(-690f, -4f, 0f);
+            gridElem.GetComponent<Animation>().clip = anim_in;
+            gridElem.GetComponent<Animation>().Play();
             visible = true;
         }
         else if (visible == true)
         {
-            gridElem.GetComponent<RectTransform>().localPosition = new Vector3(-1300f, -4f, 0f);
+            //gridElem.GetComponent<RectTransform>().localPosition = new Vector3(-1300f, -4f, 0f);
+            gridElem.GetComponent<Animation>().clip = anim_out;
+            gridElem.GetComponent<Animation>().Play();
             visible = false;
         }
     }
