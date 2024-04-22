@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonMovement : MonoBehaviour
 {
-    private GameObject pointer;
+    public GameObject pointer;
     private Vector3 addToPos;
     private bool hasAdded;
     private int debugTestNum = 0;
@@ -15,7 +15,7 @@ public class ButtonMovement : MonoBehaviour
     public void Start()
     {
         MainManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<MainManagerScript>();
-        pointer = GameObject.Find("Pointer");
+        //pointer = GameObject.Find("Pointer");
         hasAdded = false;
     }
 

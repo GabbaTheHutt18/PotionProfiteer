@@ -1598,17 +1598,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23de93a115e099748855fdba2422bb0b, type: 3}
---- !u!114 &983673911 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5699484823275442131, guid: 23de93a115e099748855fdba2422bb0b, type: 3}
-  m_PrefabInstance: {fileID: 983673910}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd3acf42b5b6f4b4ea5636fb8cefad11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &990299546
 GameObject:
   m_ObjectHideFlags: 0
@@ -2637,7 +2626,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 983673911}
+      - m_Target: {fileID: 5699484823275442131, guid: 23de93a115e099748855fdba2422bb0b, type: 3}
         m_TargetAssemblyTypeName: MainManagerScript, Assembly-CSharp
         m_MethodName: GoBackToShop
         m_Mode: 1
@@ -2648,7 +2637,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1963846056
 MonoBehaviour:
   m_ObjectHideFlags: 0

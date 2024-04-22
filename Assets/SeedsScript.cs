@@ -10,6 +10,7 @@ public class SeedsScript : MonoBehaviour
     public Image Image;
     public Sprite SeedsSprite;
     public Sprite PlantSprite;
+    public int Planter;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,16 +38,19 @@ public class SeedsScript : MonoBehaviour
             {
                 case 0:
                     herbLogicManager.mainManagerScript.ResourceInventory["firePlant"] += 3;
-                    
+                    herbLogicManager.mainManagerScript.PlantedSeeds.Remove(Planter);
                     break;
                 case 1:
                     herbLogicManager.mainManagerScript.ResourceInventory["herbPlant"] += 3;
+                    herbLogicManager.mainManagerScript.PlantedSeeds.Remove(Planter);
                     break;
                 case 2:
                     herbLogicManager.mainManagerScript.ResourceInventory["icePlant"] += 3;
+                    herbLogicManager.mainManagerScript.PlantedSeeds.Remove(Planter);
                     break;
                 case 3:
                     herbLogicManager.mainManagerScript.ResourceInventory["cavePlant"] += 3;
+                    herbLogicManager.mainManagerScript.PlantedSeeds.Remove(Planter);
                     break;
                 default:
                     break;

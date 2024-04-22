@@ -28,6 +28,7 @@ public class MainManagerScript : MonoBehaviour
         ["iceAnimal"] = 0,
         ["caveAnimal"] = 0,
     };
+    public Dictionary<int, int> PlantedSeeds = new Dictionary<int, int>();
 
     public bool explored = false; 
 
@@ -86,13 +87,16 @@ public class MainManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            explored = true;
+        }
     }
 
 
     public void GoBackToShop()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
    

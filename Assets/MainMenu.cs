@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     {
         // This would be where the next scene is loaded, simple enough to add, just need to be sure what scene it is going into
         Debug.Log("You have would have started the game");
+        SceneManager.LoadScene(1);
     }
 
     //when quit button pressed quits the game

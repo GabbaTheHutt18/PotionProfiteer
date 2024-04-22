@@ -6,6 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: f44f3896aa4f6ea4cad0a97ebfee4c0f
+  - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 4753853bc42951f47aec3ac0d78f8d63
+  - enabled: 1
+    path: Assets/Scenes/Outside.unity
+    guid: 3fbb84b89f6244f4fa6a3388823a339f
+  - enabled: 1
+    path: Assets/Scenes/GrindingStation.unity
+    guid: 9745bd95dcd6f4949b190519228cee85
+  - enabled: 1
+    path: Assets/Scenes/HerbGarden.unity
+    guid: 0e9ccb70579849f40a061cccdb21af17
+  - enabled: 1
+    path: Assets/Scenes/PotionBrewingMap.unity
+    guid: 1d144cb9788cda74a88c4bf1b7ca43af
+  - enabled: 1
+    path: Assets/Scenes/SellingAndBartering.unity
+    guid: daf2b0474217aad4a8ca931a17827870
+  - enabled: 1
+    path: Assets/Scenes/QuestBoard.unity
+    guid: 0ce326e856b6bed4ca893ba494b85b6b
   m_configObjects: {}
