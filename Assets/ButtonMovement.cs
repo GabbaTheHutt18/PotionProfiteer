@@ -8,9 +8,13 @@ public class ButtonMovement : MonoBehaviour
     private Vector3 addToPos;
     private bool hasAdded;
     private int debugTestNum = 0;
+    public float multiplier = 0f;
+    public MainManagerScript MainManager;
+    public bool isValidPress = false;
 
     public void Start()
     {
+        MainManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<MainManagerScript>();
         pointer = GameObject.Find("Pointer");
         hasAdded = false;
     }
@@ -25,30 +29,204 @@ public class ButtonMovement : MonoBehaviour
         }      
     }
 
+    public void SetPlant()
+    { 
+        multiplier = 1f;
+    }
+
+    public void SetMineral()
+    { 
+        multiplier = 1.5f;
+    }
+
+    public void SetLiquid() 
+    {
+        multiplier = 2f;
+    }
+
+    public void SetAnimal()
+    {
+        multiplier = 2.5f;
+    }
+        
+
+
     public void Right()
     {
-        addToPos = new Vector3(1, 0, 0);
-        hasAdded = false;
+        switch (multiplier)
+        {
+            case 1f:
+                if (MainManager.ResourceInventory["firePlant"] != 0)
+                {
+                    MainManager.ResourceInventory["firePlant"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            case 1.5f:
+                if (MainManager.ResourceInventory["fireMineral"] != 0)
+                {
+                    MainManager.ResourceInventory["fireMineral"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            case 2f:
+                if (MainManager.ResourceInventory["fireLiquid"] != 0)
+                {
+                    MainManager.ResourceInventory["fireLiquid"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            case 2.5f:
+                if (MainManager.ResourceInventory["fireAnimal"] != 0)
+                {
+                    MainManager.ResourceInventory["fireAnimal"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            default:
+                break;
+        }
+        if (isValidPress)
+        {
+            addToPos = new Vector3(multiplier, 0, 0);
+            hasAdded = false;
+            isValidPress = false;
+        }
+        
     }
 
     public void Left()
     {
-        addToPos = new Vector3(-1, 0, 0);
-        hasAdded = false;
+        switch (multiplier)
+        {
+            case 1f:
+                if (MainManager.ResourceInventory["icePlant"] != 0)
+                {
+                    MainManager.ResourceInventory["icePlant"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            case 1.5f:
+                if (MainManager.ResourceInventory["iceMineral"] != 0)
+                {
+                    MainManager.ResourceInventory["iceMineral"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            case 2f:
+                if (MainManager.ResourceInventory["iceLiquid"] != 0)
+                {
+                    MainManager.ResourceInventory["iceLiquid"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            case 2.5f:
+                if (MainManager.ResourceInventory["iceAnimal"] != 0)
+                {
+                    MainManager.ResourceInventory["iceAnimal"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            default:
+                break;
+        }
+        if (isValidPress)
+        {
+            addToPos = new Vector3(-(multiplier), 0, 0);
+            hasAdded = false;
+            isValidPress = false;
+        }
+        
     }
 
     public void Up()
     {
-        addToPos = new Vector3(0, 1, 0);
-        hasAdded = false;
-        debugTestNum += 1;
-        Debug.Log(debugTestNum);
+        switch (multiplier)
+        {
+            case 1f:
+                if (MainManager.ResourceInventory["herbPlant"] != 0)
+                {
+                    MainManager.ResourceInventory["herbPlant"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            case 1.5f:
+                if (MainManager.ResourceInventory["herbMineral"] != 0)
+                {
+                    MainManager.ResourceInventory["herbMineral"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            case 2f:
+                Debug.Log(MainManager.ResourceInventory["herbLiquid"]);
+                if (MainManager.ResourceInventory["herbLiquid"] != 0)
+                {
+                    MainManager.ResourceInventory["herbLiquid"] -= 1;
+                    isValidPress = true;
+                    Debug.Log(MainManager.ResourceInventory["herbLiquid"]);
+                }
+                break;
+            case 2.5f:
+                if (MainManager.ResourceInventory["herbAnimal"] != 0)
+                {
+                    MainManager.ResourceInventory["herbAnimal"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            default:
+                break;
+        }
+        if (isValidPress)
+        {
+            addToPos = new Vector3(0, multiplier, 0);
+            hasAdded = false;
+            isValidPress = false;
+        }
+
     }
 
     public void Down()
     {
-        addToPos = new Vector3(0, -1, 0);
-        hasAdded = false;
+        switch (multiplier)
+        {
+            case 1f:
+                if (MainManager.ResourceInventory["cavePlant"] != 0)
+                {
+                    MainManager.ResourceInventory["cavePlant"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            case 1.5f:
+                if (MainManager.ResourceInventory["caveMineral"] != 0)
+                {
+                    MainManager.ResourceInventory["caveMineral"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            case 2f:
+                if (MainManager.ResourceInventory["caveLiquid"] != 0)
+                {
+                    MainManager.ResourceInventory["caveLiquid"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            case 2.5f:
+                if (MainManager.ResourceInventory["caveAnimal"] != 0)
+                {
+                    MainManager.ResourceInventory["caveAnimal"] -= 1;
+                    isValidPress = true;
+                }
+                break;
+            default:
+                break;
+        }
+        if (isValidPress)
+        {
+            addToPos = new Vector3(0, -(multiplier), 0);
+            hasAdded = false;
+            isValidPress = false;
+        }
+        
     }
 
     public void DUR()

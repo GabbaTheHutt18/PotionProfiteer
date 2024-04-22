@@ -64,12 +64,9 @@ public class MainManagerScript : MonoBehaviour
         ResourceInventory["herbPlant"] = 5;
         ResourceInventory["icePlant"] = 5;
         ResourceInventory["cavePlant"] = 5;
-        Potions.Add(new Potion());
-        Potions.Add(new Potion());
-        Potions.Add(new Potion());
-        Potions[0].PotionStats = new Vector2(2, 2);
-        Potions[1].PotionStats = new Vector2(4, 4);
-        Potions[2].PotionStats= new Vector2(-3, 4);
+        Potions.Add(new Potion(new Vector2(2, 2)));
+        Potions.Add(new Potion(new Vector2(4, 4)));
+        Potions.Add(new Potion(new Vector2(-3, 4)));
         
         Quests.Add(new Quest());
         Quests.Add(new Quest());
@@ -106,6 +103,11 @@ public class Potion
 {
     public Vector2 PotionStats;
     public Sprite PotionSprite;
+    public Potion(Vector2 potionStats)
+    { 
+        PotionStats = potionStats;
+
+    }
 }
 
 public class Quest

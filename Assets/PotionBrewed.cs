@@ -21,12 +21,13 @@ public class PotionBrewed : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Triggered");
+        Debug.Log("Triggered"); 
 
         if (other.gameObject.tag == "Follower")
         {
             Debug.Log(potionName);
             IspotionBrewed = true;
+            other.gameObject.GetComponent<FollowPointer>().AddPotion();
         }
     }
 }
