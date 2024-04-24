@@ -10,11 +10,13 @@ public class FollowPointer : MonoBehaviour
     private bool samePos;
     public MainManagerScript MainManager;
     public CircleCollider2D circleCollider;
+    public bool canMove;
 
     void Start()
     {
         MainManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<MainManagerScript>();
         sliderCanMove = false;
+        canMove = false;
     }
 
     // Update is called once per frame
@@ -40,7 +42,10 @@ public class FollowPointer : MonoBehaviour
 
         if (!samePos)
         {
-            gameObject.transform.position = Vector3.MoveTowards(transform.position, pointer.position, 0.002f);
+            if (canMove)
+            {
+                gameObject.transform.position = Vector3.MoveTowards(transform.position, pointer.position, 0.002f);
+            }          
         }
     }
 

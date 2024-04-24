@@ -10,6 +10,7 @@ public class SliderAutoMovement : MonoBehaviour
     private bool canSlide;
     [SerializeField] float slideSpeed = 0.1f;
     private bool forwards;
+    public bool shouldPress;
 
     // Start is called before the first frame update
     void Start()
@@ -18,11 +19,29 @@ public class SliderAutoMovement : MonoBehaviour
         forwards = true;
         slider.value = 0;
         canSlide = false;
+        shouldPress = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (slider.value > 0.25)
+        {
+            if (slider.value < 0.75)
+            {
+                shouldPress = true;
+            }
+            else
+            {
+                shouldPress = false;
+            }
+        }
+        else
+        {
+            shouldPress = false;
+        }
+
         FollowPointer FP = Follower.GetComponent<FollowPointer>();
         if (FP.sliderCanMove == true)
         {
@@ -48,5 +67,19 @@ public class SliderAutoMovement : MonoBehaviour
         {
             slider.value = 0;
         }
+
+        if (shouldPress)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                FP.canMove = true;
+            }
+        }
+        else if (!shouldPress)
+        {
+            FP.canMove = false;
+        }
+
+
     }
 }
