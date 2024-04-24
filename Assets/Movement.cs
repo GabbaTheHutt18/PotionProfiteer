@@ -17,5 +17,30 @@ public class Movement : MonoBehaviour
     void Update()
     {
         transform.position = currentPos;
+        if (transform.position.y > 4)
+        {
+            Vector3 vector3 = transform.position;
+            vector3.y = -4.72f;
+            transform.position = vector3;
+        }
+        else if (transform.position.y <= -4.7)
+        {
+            Vector3 vector3 = transform.position;
+            vector3.y = 4.2f;
+            transform.position = vector3;
+        }
+        if (transform.position.x >= 3.15)
+        {
+            Vector3 vector3 = transform.position;
+            vector3.x = -7.65f;
+            transform.position = vector3;
+        }
+        if (transform.position.x <= -7.65)
+        {
+            Vector3 vector3 = transform.position;
+            vector3.x = 3.15f;
+            transform.position = vector3;
+        }
+
     }
 }

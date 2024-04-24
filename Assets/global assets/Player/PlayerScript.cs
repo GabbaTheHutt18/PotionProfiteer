@@ -8,11 +8,15 @@ public class PlayerScript : MonoBehaviour
     //Variables
     public float moveSpeed = 1; // Move Speed multiplier, can be altered in Inspector
     private Rigidbody2D rb2d;
+    public float timer;
+    public GameObject PopUpBox;
+    public Canvas Canvas;
 
 
     void Start()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>(); // Gets reference to rigidbody component
+        timer = Random.Range(25, 76);
     }
 
     void FixedUpdate()
@@ -25,6 +29,21 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetButton("Vertical")) // Axis will return 1, 0 or -1 for up, stationary and down respectively.
         {
             rb2d.position += new Vector2(0, Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime);
+        }
+    }
+
+    void Update()
+    {
+        if (Canvas.transform.childCount < 3)
+        {
+            timer -= Time.deltaTime;
+        }
+        
+        if (timer <= 0.0f)
+        {
+            Instantiate(PopUpBox,Canvas.transform);
+            timer = Random.Range(25,76); 
+            
         }
     }
 }

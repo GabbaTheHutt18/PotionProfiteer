@@ -7,7 +7,6 @@ public class ButtonMovement : MonoBehaviour
     public GameObject pointer;
     private Vector3 addToPos;
     private bool hasAdded;
-    private int debugTestNum = 0;
     public float multiplier = 0f;
     public MainManagerScript MainManager;
     public bool isValidPress = false;
@@ -31,22 +30,22 @@ public class ButtonMovement : MonoBehaviour
 
     public void SetPlant()
     { 
-        multiplier = 1f;
+        multiplier = 0.4f;
     }
 
     public void SetMineral()
     { 
-        multiplier = 1.5f;
+        multiplier = 0.8f;
     }
 
     public void SetLiquid() 
     {
-        multiplier = 2f;
+        multiplier = 1.2f;
     }
 
     public void SetAnimal()
     {
-        multiplier = 2.5f;
+        multiplier = 1.5f;
     }
         
 
@@ -55,28 +54,28 @@ public class ButtonMovement : MonoBehaviour
     {
         switch (multiplier)
         {
-            case 1f:
+            case 0.4f:
                 if (MainManager.ResourceInventory["firePlant"] != 0)
                 {
                     MainManager.ResourceInventory["firePlant"] -= 1;
                     isValidPress = true;
                 }
                 break;
-            case 1.5f:
+            case 0.8f:
                 if (MainManager.ResourceInventory["fireMineral"] != 0)
                 {
                     MainManager.ResourceInventory["fireMineral"] -= 1;
                     isValidPress = true;
                 }
                 break;
-            case 2f:
+            case 1.2f:
                 if (MainManager.ResourceInventory["fireLiquid"] != 0)
                 {
                     MainManager.ResourceInventory["fireLiquid"] -= 1;
                     isValidPress = true;
                 }
                 break;
-            case 2.5f:
+            case 1.5f:
                 if (MainManager.ResourceInventory["fireAnimal"] != 0)
                 {
                     MainManager.ResourceInventory["fireAnimal"] -= 1;
@@ -99,28 +98,28 @@ public class ButtonMovement : MonoBehaviour
     {
         switch (multiplier)
         {
-            case 1f:
+            case 0.4f:
                 if (MainManager.ResourceInventory["icePlant"] != 0)
                 {
                     MainManager.ResourceInventory["icePlant"] -= 1;
                     isValidPress = true;
                 }
                 break;
-            case 1.5f:
+            case 0.8f:
                 if (MainManager.ResourceInventory["iceMineral"] != 0)
                 {
                     MainManager.ResourceInventory["iceMineral"] -= 1;
                     isValidPress = true;
                 }
                 break;
-            case 2f:
+            case 1.2f:
                 if (MainManager.ResourceInventory["iceLiquid"] != 0)
                 {
                     MainManager.ResourceInventory["iceLiquid"] -= 1;
                     isValidPress = true;
                 }
                 break;
-            case 2.5f:
+            case 1.5f:
                 if (MainManager.ResourceInventory["iceAnimal"] != 0)
                 {
                     MainManager.ResourceInventory["iceAnimal"] -= 1;
@@ -143,21 +142,21 @@ public class ButtonMovement : MonoBehaviour
     {
         switch (multiplier)
         {
-            case 1f:
+            case 0.4f:
                 if (MainManager.ResourceInventory["herbPlant"] != 0)
                 {
                     MainManager.ResourceInventory["herbPlant"] -= 1;
                     isValidPress = true;
                 }
                 break;
-            case 1.5f:
+            case 0.8f:
                 if (MainManager.ResourceInventory["herbMineral"] != 0)
                 {
                     MainManager.ResourceInventory["herbMineral"] -= 1;
                     isValidPress = true;
                 }
                 break;
-            case 2f:
+            case 1.2f:
                 Debug.Log(MainManager.ResourceInventory["herbLiquid"]);
                 if (MainManager.ResourceInventory["herbLiquid"] != 0)
                 {
@@ -166,7 +165,7 @@ public class ButtonMovement : MonoBehaviour
                     Debug.Log(MainManager.ResourceInventory["herbLiquid"]);
                 }
                 break;
-            case 2.5f:
+            case 1.5f:
                 if (MainManager.ResourceInventory["herbAnimal"] != 0)
                 {
                     MainManager.ResourceInventory["herbAnimal"] -= 1;
@@ -189,28 +188,28 @@ public class ButtonMovement : MonoBehaviour
     {
         switch (multiplier)
         {
-            case 1f:
+            case 0.4f:
                 if (MainManager.ResourceInventory["cavePlant"] != 0)
                 {
                     MainManager.ResourceInventory["cavePlant"] -= 1;
                     isValidPress = true;
                 }
                 break;
-            case 1.5f:
+            case 0.8f:
                 if (MainManager.ResourceInventory["caveMineral"] != 0)
                 {
                     MainManager.ResourceInventory["caveMineral"] -= 1;
                     isValidPress = true;
                 }
                 break;
-            case 2f:
+            case 1.2f:
                 if (MainManager.ResourceInventory["caveLiquid"] != 0)
                 {
                     MainManager.ResourceInventory["caveLiquid"] -= 1;
                     isValidPress = true;
                 }
                 break;
-            case 2.5f:
+            case 1.5f:
                 if (MainManager.ResourceInventory["caveAnimal"] != 0)
                 {
                     MainManager.ResourceInventory["caveAnimal"] -= 1;

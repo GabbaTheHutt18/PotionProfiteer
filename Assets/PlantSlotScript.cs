@@ -18,6 +18,7 @@ public class PlantSlotScript : MonoBehaviour, IDropHandler
     // Update is called once per frame
     void Update()
     {
+
         switch (PlantType)
         {
             case 0:
@@ -47,6 +48,10 @@ public class PlantSlotScript : MonoBehaviour, IDropHandler
             default:
                 break;
         }
+        if (transform.childCount > 1)
+        {
+            Destroy(transform.GetChild(1).gameObject);
+        }
         
     }
 
@@ -68,6 +73,8 @@ public class PlantSlotScript : MonoBehaviour, IDropHandler
                 PotionScript Plant = dropped.GetComponent<PotionScript>();
                 Plant.ParentAfterDrag = transform;
             }
+            
+
 
         }
 

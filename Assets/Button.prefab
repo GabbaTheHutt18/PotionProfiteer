@@ -61,16 +61,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1551745, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1211e9840c9802e48b9417479c387dca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4483e20519bad0f4092f27b4196049ca, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -149,7 +149,12 @@ MonoBehaviour:
   PlantType: 0
   Image: {fileID: 7499051293311667381}
   SeedsSprite: {fileID: 0}
-  PlantSprite: {fileID: 0}
+  PlantSprite: {fileID: 21300000, guid: 0c5fec97b4adbe34e80668077b907f89, type: 3}
+  FireSeeds: {fileID: 21300000, guid: 4483e20519bad0f4092f27b4196049ca, type: 3}
+  HerbSeeds: {fileID: 21300000, guid: 222dea7207a50f941ae075626ebddd3b, type: 3}
+  IceSeeds: {fileID: 21300000, guid: 8859f125af407074aa09887e866879b1, type: 3}
+  CaveSeeds: {fileID: 21300000, guid: 0a540cc852a645143bbe5755446832fb, type: 3}
+  Planter: 0
 --- !u!1 &1145305755865970665
 GameObject:
   m_ObjectHideFlags: 0

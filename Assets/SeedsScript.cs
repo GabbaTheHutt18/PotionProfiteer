@@ -10,11 +10,32 @@ public class SeedsScript : MonoBehaviour
     public Image Image;
     public Sprite SeedsSprite;
     public Sprite PlantSprite;
+    public Sprite FireSeeds;
+    public Sprite HerbSeeds;
+    public Sprite IceSeeds;
+    public Sprite CaveSeeds;
     public int Planter;
     // Start is called before the first frame update
     void Start()
     {
         herbLogicManager = GameObject.FindGameObjectWithTag("Logic").GetComponent<HerbLogicManager>();
+        switch (PlantType)
+        {
+            case 0:
+                SeedsSprite = FireSeeds;
+                break;
+            case 1:
+                SeedsSprite = HerbSeeds;
+                break;
+            case 2:
+                SeedsSprite=IceSeeds;   
+                break;
+            case 3:
+                SeedsSprite=CaveSeeds;
+                break;
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame

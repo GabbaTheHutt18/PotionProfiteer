@@ -7,26 +7,26 @@ public class MainManagerScript : MonoBehaviour
 {
     public static MainManagerScript Instance;
     public Dictionary<string, int> ResourceInventory = new Dictionary<string, int> {
-        ["firePlant"] = 0,
-        ["herbPlant"] = 0,
-        ["icePlant"] = 0,
-        ["cavePlant"] = 0,
-        ["fireSeeds"] = 0,
-        ["herbSeeds"] = 0,
-        ["iceSeeds"] = 0,
-        ["caveSeeds"] = 0,
-        ["fireLiquid"] = 0,
-        ["herbLiquid"] = 0,
-        ["iceLiquid"] = 0,
-        ["caveLiquid"] = 0,
-        ["fireMineral"] = 0,
-        ["herbMineral"] = 0,
-        ["iceMineral"] = 0,
-        ["caveMineral"] = 0,
-        ["fireAnimal"] = 0,
-        ["herbAnimal"] = 0,
-        ["iceAnimal"] = 0,
-        ["caveAnimal"] = 0,
+        ["firePlant"] = 2,
+        ["herbPlant"] = 2,
+        ["icePlant"] = 2,
+        ["cavePlant"] = 2,
+        ["fireSeeds"] = 2,
+        ["herbSeeds"] = 2,
+        ["iceSeeds"] = 2,
+        ["caveSeeds"] = 2,
+        ["fireLiquid"] = 2,
+        ["herbLiquid"] = 2,
+        ["iceLiquid"] = 2,
+        ["caveLiquid"] = 2,
+        ["fireMineral"] = 2,
+        ["herbMineral"] = 2,
+        ["iceMineral"] = 2,
+        ["caveMineral"] = 2,
+        ["fireAnimal"] = 2,
+        ["herbAnimal"] = 2,
+        ["iceAnimal"] = 2,
+        ["caveAnimal"] = 2,
     };
     public Dictionary<int, int> PlantedSeeds = new Dictionary<int, int>();
 
@@ -57,14 +57,7 @@ public class MainManagerScript : MonoBehaviour
 
     void Start()
     {
-        ResourceInventory["fireSeeds"] = 20;
-        ResourceInventory["herbSeeds"] = 20;
-        ResourceInventory["iceSeeds"] = 20;
-        ResourceInventory["caveSeeds"] = 20;
-        ResourceInventory["firePlant"] = 5;
-        ResourceInventory["herbPlant"] = 5;
-        ResourceInventory["icePlant"] = 5;
-        ResourceInventory["cavePlant"] = 5;
+        
         Potions.Add(new Potion(new Vector2(2, 2)));
         Potions.Add(new Potion(new Vector2(4, 4)));
         Potions.Add(new Potion(new Vector2(-3, 4)));
@@ -120,6 +113,7 @@ public class Quest
     public string QuestDescription;
     public string QuestRequirement;
     public Dictionary<string, int> QuestRequirements = new Dictionary<string, int>();
+    public List<Potion> xx = new List<Potion> ();
     public string QuestReward;
     public int QuestID;
     public bool QuestCompleted; 

@@ -21,15 +21,15 @@ public class HerbLogicManager : MonoBehaviour
     {
         mainManagerScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<MainManagerScript>();
         
-        int xPosition = 700;
+        int xPosition = 810;
     
         for (int i = 0; i < 3; i++)
         {
             
             GameObject planter = Instantiate(PlanterBox, canvas.transform);
-            planter.transform.position = new Vector3 (xPosition, 700, 0);
+            planter.transform.position = new Vector3 (xPosition, 715, 0);
             Planters.Add(planter);
-            xPosition += 400;
+            xPosition += 430;
             if (mainManagerScript.PlantedSeeds.ContainsKey(i))
             {
                 Button _seed = Instantiate(Seeds, Planters[i].transform.position, Planters[i].transform.rotation, Planters[i].transform);
