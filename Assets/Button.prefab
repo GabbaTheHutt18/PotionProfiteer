@@ -154,6 +154,10 @@ MonoBehaviour:
   HerbSeeds: {fileID: 21300000, guid: 222dea7207a50f941ae075626ebddd3b, type: 3}
   IceSeeds: {fileID: 21300000, guid: 8859f125af407074aa09887e866879b1, type: 3}
   CaveSeeds: {fileID: 21300000, guid: 0a540cc852a645143bbe5755446832fb, type: 3}
+  FirePlant: {fileID: 21300000, guid: 169222358d9b9e0419c6408c8f747964, type: 3}
+  HerbPlant: {fileID: 21300000, guid: 3518c65731cd5a74fbb6cfc038ba319f, type: 3}
+  IcePlant: {fileID: 21300000, guid: 84586043239f0cd459c6bbb991cf304c, type: 3}
+  CavePlant: {fileID: 21300000, guid: 967119d56ae80d14cbdcd5ae54f56639, type: 3}
   Planter: 0
 --- !u!1 &1145305755865970665
 GameObject:

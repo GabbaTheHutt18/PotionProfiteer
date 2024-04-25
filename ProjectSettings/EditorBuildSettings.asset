@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/QuestBoard.unity
     guid: 0ce326e856b6bed4ca893ba494b85b6b
+  - enabled: 1
+    path: Assets/Scenes/StorageRoom.unity
+    guid: 1dc80bb5dd0e12f488f3900288d5bbe0
   m_configObjects: {}

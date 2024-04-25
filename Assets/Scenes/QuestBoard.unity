@@ -1879,7 +1879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1192299671
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2627,6 +2627,8 @@ MonoBehaviour:
   QuestDescription: {fileID: 1319151503}
   QuestRequirements: {fileID: 2100563785}
   QuestReward: {fileID: 453693056}
+  ErrorMessage: {fileID: 1192299672}
+  completedQuest: 0
 --- !u!1 &1963846053
 GameObject:
   m_ObjectHideFlags: 0

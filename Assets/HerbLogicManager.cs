@@ -30,12 +30,11 @@ public class HerbLogicManager : MonoBehaviour
             planter.transform.position = new Vector3 (xPosition, 715, 0);
             Planters.Add(planter);
             xPosition += 430;
-            if (mainManagerScript.PlantedSeeds.ContainsKey(i))
+            if (mainManagerScript.PlantedSeeds[i] != -1)
             {
                 Button _seed = Instantiate(Seeds, Planters[i].transform.position, Planters[i].transform.rotation, Planters[i].transform);
                 _seed.transform.GetComponent<SeedsScript>().PlantType = mainManagerScript.PlantedSeeds[i];
-                _seed.transform.GetComponent<SeedsScript>().SeedsSprite = SeedSprite;
-                _seed.transform.GetComponent<SeedsScript>().PlantSprite = PlantSprite;
+                _seed.transform.GetComponent<SeedsScript>().Planter = i;
             }
         }
         
@@ -51,6 +50,7 @@ public class HerbLogicManager : MonoBehaviour
     {
         mainManagerScript.explored = false;
         int Planter = GetEmptyPlanter();
+        Debug.Log(Planter);
         if (Planter != -1 && mainManagerScript.ResourceInventory["fireSeeds"] > 0)
         {
             mainManagerScript.ResourceInventory["fireSeeds"] -= 1;
@@ -68,6 +68,7 @@ public class HerbLogicManager : MonoBehaviour
     {
         mainManagerScript.explored = false;
         int Planter = GetEmptyPlanter();
+        Debug.Log(Planter);
         if (Planter != -1 && mainManagerScript.ResourceInventory["herbSeeds"] > 0)
         {
             mainManagerScript.ResourceInventory["herbSeeds"] -= 1;
@@ -85,6 +86,7 @@ public class HerbLogicManager : MonoBehaviour
     {
         mainManagerScript.explored = false;
         int Planter = GetEmptyPlanter();
+        Debug.Log(Planter);
         if (Planter != -1 && mainManagerScript.ResourceInventory["iceSeeds"] > 0)
         {
             mainManagerScript.ResourceInventory["iceSeeds"] -= 1;
@@ -94,6 +96,7 @@ public class HerbLogicManager : MonoBehaviour
             _seed.transform.GetComponent<SeedsScript>().SeedsSprite = SeedSprite;
             _seed.transform.GetComponent<SeedsScript>().PlantSprite = PlantSprite;
             mainManagerScript.PlantedSeeds[Planter] = 2;
+            Debug.Log(_seed.transform.GetComponent<SeedsScript>().Planter);
         }
 
     }
@@ -101,6 +104,7 @@ public class HerbLogicManager : MonoBehaviour
     {
         mainManagerScript.explored = false;
         int Planter = GetEmptyPlanter();
+        Debug.Log(Planter);
         if (Planter != -1 && mainManagerScript.ResourceInventory["caveSeeds"] > 0)
         {
             mainManagerScript.ResourceInventory["caveSeeds"] -= 1;
@@ -110,6 +114,7 @@ public class HerbLogicManager : MonoBehaviour
             _seed.transform.GetComponent<SeedsScript>().SeedsSprite = SeedSprite;
             _seed.transform.GetComponent<SeedsScript>().PlantSprite = PlantSprite;
             mainManagerScript.PlantedSeeds[Planter] = 3;
+            Debug.Log(_seed.transform.GetComponent<SeedsScript>().Planter);
 
         }
     }
@@ -122,6 +127,7 @@ public class HerbLogicManager : MonoBehaviour
         {
             if (Planters[i].transform.childCount < 1)
             {
+                Debug.Log(i);
                 return i;
             }
         }

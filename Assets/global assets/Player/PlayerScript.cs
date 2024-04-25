@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -34,16 +35,20 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        if (Canvas.transform.childCount < 3)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            timer -= Time.deltaTime;
+            if (Canvas.transform.childCount < 3)
+            {
+                timer -= Time.deltaTime;
+            }
+
+            if (timer <= 0.0f)
+            {
+                Instantiate(PopUpBox, Canvas.transform);
+                timer = Random.Range(25, 76);
+
+            }
         }
         
-        if (timer <= 0.0f)
-        {
-            Instantiate(PopUpBox,Canvas.transform);
-            timer = Random.Range(25,76); 
-            
-        }
     }
 }

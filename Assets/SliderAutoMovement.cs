@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class SliderAutoMovement : MonoBehaviour
     private bool canSlide;
     [SerializeField] float slideSpeed = 0.1f;
     private bool forwards;
+    public bool shouldPress;
+    private FollowPointer FP;
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +21,22 @@ public class SliderAutoMovement : MonoBehaviour
         forwards = true;
         slider.value = 0;
         canSlide = false;
+        shouldPress = false;
+        FP = Follower.GetComponent<FollowPointer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        FollowPointer FP = Follower.GetComponent<FollowPointer>();
+        if (slider.value > 0.25 && slider.value < 0.75)
+        {
+            shouldPress = true;
+        }
+        else
+        {
+            shouldPress = false;
+        }
+        
         if (FP.sliderCanMove == true)
         {
             if (forwards)
@@ -47,6 +60,22 @@ public class SliderAutoMovement : MonoBehaviour
         if (FP.sliderCanMove == false)
         {
             slider.value = 0;
+        }
+       
+    }
+
+    public void ButtonPressed()
+    {
+        if (shouldPress)
+        {
+            FP.canMove = true;
+            FP.sliderCanMove = false;
+        }
+        else
+        {
+            MainManagerScript mainManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<MainManagerScript>();
+            mainManager.BlewUp = true;
+            mainManager.GoBackToShop();
         }
     }
 }
