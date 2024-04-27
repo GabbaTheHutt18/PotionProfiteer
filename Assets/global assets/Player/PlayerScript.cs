@@ -23,6 +23,16 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetButton("Horizontal")) // Axis will return 1, 0 or -1 for right, stationary and left respectively.
         {
             rb2d.position += new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, 0);
+            if (Input.GetAxisRaw("Horizontal") == -1 && Input.GetAxisRaw("Vertical") == 0)
+            {
+                animator.SetFloat("multiplier", 1);
+                animator.SetInteger("State", 1);
+            }
+            else if (Input.GetAxisRaw("Horizontal") == 1 && Input.GetAxisRaw("Vertical") == 0)
+            {
+                animator.SetFloat("multiplier", 1);
+                animator.SetInteger("State", 2);
+            }
         }
 
         if (Input.GetButton("Vertical")) // Axis will return 1, 0 or -1 for up, stationary and down respectively.
@@ -31,14 +41,13 @@ public class PlayerScript : MonoBehaviour
             if (Input.GetAxisRaw("Vertical") == -1)
             {
                 animator.SetFloat("multiplier", 1);
-                animator.SetBool("Forward", true);
-                animator.SetBool("Backward", false);
+                animator.SetInteger("State", 0);
+
             }
             else if (Input.GetAxisRaw("Vertical") == 1)
             {
                 animator.SetFloat("multiplier", 1);
-                animator.SetBool("Forward", false);
-                animator.SetBool("Backward", true);
+                animator.SetInteger("State", 3);
             }
             
         }

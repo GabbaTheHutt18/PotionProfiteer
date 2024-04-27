@@ -118,6 +118,7 @@ MonoBehaviour:
   DropBoxPointer: {fileID: 4244732769055430808}
   slot_num: 4
   horizontal: 0
+  activate: 1
 --- !u!111 &6958594510017862797
 Animation:
   m_ObjectHideFlags: 0
@@ -319,7 +320,7 @@ Animator:
   m_GameObject: {fileID: 3693282187359877773}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b38020f1c922f4f408ba695b42af7e99, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -416,6 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 1695518876650006666}
+  Main: 0
 --- !u!1 &4635104449428337920
 GameObject:
   m_ObjectHideFlags: 0
