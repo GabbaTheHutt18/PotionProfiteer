@@ -66,24 +66,28 @@ public class InventoryDisplayScript : MonoBehaviour
             {
                 case 0:
                     numPotion1++;
+
                     break;
                 case 1:
                     numPotion2++;
+
                     break;
                 case 2:
                     numPotion3++;
+
                     break;
                 case 3:
                     numPotion4++;
+
                     break;
                 default:
                     break;
             }
         }
         potion1.text = numPotion1.ToString();
-        potion2.text = numPotion1.ToString(); 
-        potion3.text = numPotion1.ToString(); 
-        potion4.text = numPotion1.ToString();
+        potion2.text = numPotion2.ToString(); 
+        potion3.text = numPotion3.ToString(); 
+        potion4.text = numPotion4.ToString();
     }
 
 

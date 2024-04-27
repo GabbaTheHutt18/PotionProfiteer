@@ -9,12 +9,48 @@ public class PlantScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     [HideInInspector] public Transform ParentAfterDrag;
     public Image image;
     public int PlantType;
-    public Sprite SpeedsSprite; 
-    MainManagerScript mainManagerScript;
+    public Sprite firePlant;
+    public Sprite herbPlant;
+    public Sprite icePlant;
+    public Sprite cavePlant;
+    public Sprite fireSeed;
+    public Sprite herbSeed;
+    public Sprite iceSeed;
+    public Sprite caveSeed;
+    public Sprite PlantSprite;
+    public Sprite SeedsSprite; 
+    public MainManagerScript mainManagerScript;
     // Start is called before the first frame update
     void Start()
     {
         mainManagerScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<MainManagerScript>();
+        Assign();
+    }
+
+    public void Assign()
+    {
+        switch (PlantType)
+        {
+            case 0:
+                PlantSprite = firePlant;
+                SeedsSprite = fireSeed;
+                break;
+            case 1:
+                PlantSprite = herbPlant;
+                SeedsSprite = herbSeed;
+                break;
+            case 2:
+                PlantSprite = icePlant;
+                SeedsSprite = iceSeed;
+                break;
+            case 3:
+                PlantSprite = cavePlant;
+                SeedsSprite = caveSeed;
+                break;
+            default:
+                break;
+        }
+        image.sprite = PlantSprite;
     }
 
     // Update is called once per frame
@@ -25,23 +61,19 @@ public class PlantScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void ChangeToSeeds()
     {
-        image.sprite = SpeedsSprite;
+        image.sprite = SeedsSprite;
         switch (PlantType)
         {
             case 0:
-                mainManagerScript.ResourceInventory["firePlant"] -= 1;
                 mainManagerScript.ResourceInventory["fireSeeds"] += 3;
                 break;
             case 1:
-                mainManagerScript.ResourceInventory["herbPlant"] -= 1;
                 mainManagerScript.ResourceInventory["herbSeeds"] += 3;
                 break;
             case 2:
-                mainManagerScript.ResourceInventory["icePlant"] -= 1;
                 mainManagerScript.ResourceInventory["iceSeeds"] += 3;
                 break;
             case 3:
-                mainManagerScript.ResourceInventory["cavePlant"] -= 1;
                 mainManagerScript.ResourceInventory["caveSeeds"] += 3;
                 break;
             default:
@@ -75,6 +107,7 @@ public class PlantScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
         transform.SetParent(ParentAfterDrag);
         image.raycastTarget = true;
+        
 
     }
 

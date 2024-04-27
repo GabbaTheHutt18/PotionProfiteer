@@ -8,7 +8,6 @@ public class SliderAutoMovement : MonoBehaviour
 {
     private GameObject Follower;
     public Slider slider;
-    private bool canSlide;
     [SerializeField] float slideSpeed = 0.1f;
     private bool forwards;
     public bool shouldPress;
@@ -20,7 +19,6 @@ public class SliderAutoMovement : MonoBehaviour
         Follower = GameObject.Find("Follower");
         forwards = true;
         slider.value = 0;
-        canSlide = false;
         shouldPress = false;
         FP = Follower.GetComponent<FollowPointer>();
     }

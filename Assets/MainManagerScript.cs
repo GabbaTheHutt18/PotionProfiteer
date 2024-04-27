@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 public class MainManagerScript : MonoBehaviour
 {
     public static MainManagerScript Instance;
+    public AudioSource AudioSource;
+    public AudioClip AudioClip1;
+    public AudioClip AudioClip2;
+    public AudioClip AudioClip3;
+    List<AudioClip> AudioClipList = new List<AudioClip>();
     public Dictionary<string, int> ResourceInventory = new Dictionary<string, int> {
         ["firePlant"] = 2,
         ["herbPlant"] = 2,
@@ -61,11 +66,14 @@ public class MainManagerScript : MonoBehaviour
 
     void Start()
     {
-        
-        Potions.Add(new Potion(new Vector2(2, 2)));
-        Potions.Add(new Potion(new Vector2(2, 3)));
-        Potions.Add(new Potion(new Vector2(4, 4)));
-        Potions.Add(new Potion(new Vector2(-3, 4)));
+        AudioClipList.Add(AudioClip1);
+        AudioClipList.Add(AudioClip2);
+        AudioClipList.Add(AudioClip3);
+
+        Potions.Add(new Potion(new Vector2(2, 2),0));
+        Potions.Add(new Potion(new Vector2(2, 3),1));
+        Potions.Add(new Potion(new Vector2(4, 4),2));
+        Potions.Add(new Potion(new Vector2(-3, 4), 3));
         
         Quests.Add(new Quest());
         Quests.Add(new Quest());
@@ -82,16 +90,16 @@ public class MainManagerScript : MonoBehaviour
         Quests[1].QuestID = 1;
         Quests[1].QuestTitle = "Help I want to be a snack!";
 
-        Quests[1].PotionRequirements.Add(new Potion(new Vector2(2,3)));
-        Quests[1].QuestRequirement = $"Potion: {Quests[1].PotionRequirements[0].PotionStats}";
+        Quests[1].PotionRequirements.Add(new Potion(new Vector2(2,3), 1));
+        Quests[1].QuestRequirement = $"Potion: {Quests[1].PotionRequirements[0].ID}";
         Quests[1].RewardType = 1;
         Quests[1].ResourceReward.Add("iceAnimal",1);
         Quests[1].QuestReward = $"{Quests[1].ResourceReward.ElementAt(0).Value} SnowLeaf";
 
         Quests[2].QuestID = 2;
-        Quests[2].QuestTitle = "Quest O'clock xxx";
-        Quests[2].PotionRequirements.Add(new Potion(new Vector2(-4, -2)));
-        Quests[2].QuestRequirement = $"Potion: {Quests[2].PotionRequirements[0].PotionStats}";
+        Quests[2].QuestTitle = "Love from Mothman xx";
+        Quests[2].PotionRequirements.Add(new Potion(new Vector2(-4, -2),2));
+        Quests[2].QuestRequirement = $"Potion: {Quests[2].PotionRequirements[0].ID}";
         Quests[2].RewardType = 1;
         Quests[2].ResourceReward.Add("caveSeeds", 5);
         Quests[2].QuestReward = $"{Quests[2].ResourceReward.ElementAt(0).Value} Blush Mush Seed";
@@ -105,10 +113,15 @@ public class MainManagerScript : MonoBehaviour
         {
             explored = true;
         }
-        if (BlewUp && SceneManager.GetActiveScene().buildIndex == 1)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Oop silly, you gassed yourself xx");
-            BlewUp = false;
+            SceneManager.LoadScene(0);
+        }
+        
+        if (!AudioSource.isPlaying)
+        {
+            int randomAudio = Random.RandomRange(0, AudioClipList.Count);
+            AudioSource.PlayOneShot(AudioClipList[randomAudio]);
         }
     }
 
@@ -124,12 +137,26 @@ public class MainManagerScript : MonoBehaviour
 
 public class Potion
 {
-    public Vector2 PotionStats;
-    public Sprite PotionSprite;
+    public Vector2 PotionStats; 
     public int ID;
-    public Potion(Vector2 potionStats)
+    public Potion(Vector2 potionStats, int id)
     { 
         PotionStats = potionStats;
+        ID = id;
+        switch (ID) 
+        {
+            case 0:
+
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default: 
+                break;
+        }
 
     }
 }

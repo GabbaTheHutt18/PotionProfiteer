@@ -20,11 +20,13 @@ public class LogicManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        GameObject _npc = Instantiate(NPC);
+        Vector3 position = new Vector3(0, 1.65f, -2);
+        GameObject _npc = Instantiate(NPC, position, transform.rotation);
         NPC_Script = _npc.GetComponent<NPC_Script>();
         mainManagerScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<MainManagerScript>();
         Potions = mainManagerScript.Potions;
         CoinText.text = "Coin: " + Coin;
+        
         
     }
 
@@ -36,23 +38,32 @@ public class LogicManagerScript : MonoBehaviour
 
     public void GetPrice()
     {
-        Price = (int)(Mathf.Abs(SelectedPotion.PotionStats.x)+ Mathf.Abs(SelectedPotion.PotionStats.y));
-        if (NPC_Script.hatedPotion == SelectedPotion.PotionStats)
+        if (SelectedPotion == null)
         {
-            Price = (int)(Price * 0.5);
-            
-            Dialog.text = NPC_Script.SelectedDialogue[7];
+            Dialog.text = "You've not given me anything to buy??";
 
-        }
-        else if (NPC_Script.favouritePotion == SelectedPotion.PotionStats)
-        {
-            Price *= 2;
-            Dialog.text = NPC_Script.SelectedDialogue[6];
         }
         else
         {
-            Dialog.text = NPC_Script.SelectedDialogue[5];
+            Price = (int)(Mathf.Abs(SelectedPotion.PotionStats.x*10) + Mathf.Abs(SelectedPotion.PotionStats.y * 10));
+            if (NPC_Script.hatedPotion == SelectedPotion.ID)
+            {
+                Price = (int)(Price * 0.5);
+
+                Dialog.text = NPC_Script.SelectedDialogue[7];
+
+            }
+            else if (NPC_Script.favouritePotion == SelectedPotion.ID)
+            {
+                Price *= 2;
+                Dialog.text = NPC_Script.SelectedDialogue[6];
+            }
+            else
+            {
+                Dialog.text = NPC_Script.SelectedDialogue[5];
+            }
         }
+       
         Offer.text = "Price: " + Price;
         
     }
@@ -63,6 +74,8 @@ public class LogicManagerScript : MonoBehaviour
         Potions.Remove(SelectedPotion);
         CoinText.text = "Coin: " + Coin;
         Price = 0;
+        Offer.text = "Price: " + Price;
+        Dialog.text = "Cheers!";
         WantToBarter = true;
     }
 

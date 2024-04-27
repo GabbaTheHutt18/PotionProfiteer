@@ -55,7 +55,7 @@ public class QuestBoardManagerScript : MonoBehaviour
             {
                 foreach (var Potion in MainManager.Potions)
                 {
-                    if (Potion.PotionStats == item.PotionStats)
+                    if (Potion.ID == item.ID)
                     {
                         RemovePotions.Add(Potion);
                     }
@@ -113,7 +113,7 @@ public class QuestBoardManagerScript : MonoBehaviour
             {
                 foreach (var Potion in MainManager.Potions)
                 {
-                    if (Potion.PotionStats == item.PotionStats)
+                    if (Potion.ID == item.ID)
                     {
                         num -= 1;
                     }

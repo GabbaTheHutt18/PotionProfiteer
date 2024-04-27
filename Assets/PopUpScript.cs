@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PopUpScript : MonoBehaviour
 {
@@ -12,25 +13,35 @@ public class PopUpScript : MonoBehaviour
     void Start()
     {
         MainManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<MainManagerScript>();
-        id = Random.Range(1, 5);
-        switch (id) 
-        { 
-            case 1:
-                PopUpText.text = "You've been mugged!";
-                break;
-            case 2:
-                PopUpText.text = "mmm snack";
-                break;
-            case 3:
-                PopUpText.text = "slag";
-                break;
-            case 4:
-                PopUpText.text = "No";
-                break;
-            default:
-                break;
-        
+        if (MainManager.BlewUp)
+        {
+            id = -1;
+            PopUpText.text = "Silly, you've gassed yourself xxx";
         }
+        else
+        {
+            id = Random.Range(1, 5);
+            switch (id)
+            {
+                case 1:
+                    PopUpText.text = "You've been mugged!";
+                    break;
+                case 2:
+                    PopUpText.text = "mmm snack";
+                    break;
+                case 3:
+                    PopUpText.text = "slag";
+                    break;
+                case 4:
+                    PopUpText.text = "No";
+                    break;
+                default:
+                    break;
+
+            }
+        } 
+        
+        
     }
 
  
@@ -57,6 +68,11 @@ public class PopUpScript : MonoBehaviour
             default:
                 break;
 
+        }
+
+        if (MainManager.BlewUp)
+        {
+            MainManager.BlewUp = false;
         }
         Destroy(gameObject);
 

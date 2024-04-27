@@ -34,15 +34,10 @@ public class FollowPointer : MonoBehaviour
         }
     }
 
-    public void AddPotion()
+    public void AddPotion(int PotionID)
     {
         Vector2 Potion = pointer.transform.position;
-        MainManager.Potions.Add(new Potion(Potion));
-        Debug.Log(Potion);
-        foreach (var item in MainManager.Potions)
-        {
-            Debug.Log(item.PotionStats);
-        }
+        MainManager.Potions.Add(new Potion(Potion, PotionID));
     }
 
     public void PotionConfirmed()

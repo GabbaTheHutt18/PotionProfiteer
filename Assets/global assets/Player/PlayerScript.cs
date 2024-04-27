@@ -49,6 +49,14 @@ public class PlayerScript : MonoBehaviour
 
             }
         }
+        else
+        {
+            MainManagerScript MainManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<MainManagerScript>();
+            if (MainManager.BlewUp && Canvas.transform.childCount < 3) 
+            {
+                Instantiate(PopUpBox, Canvas.transform);
+            }
+        }
         
     }
 }

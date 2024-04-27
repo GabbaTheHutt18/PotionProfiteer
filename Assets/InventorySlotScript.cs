@@ -17,8 +17,6 @@ public class InventorySlotScript : MonoBehaviour, IDropHandler
     void Update()
     {
         ChildCount = transform.childCount;
-        if (transform.childCount <= 0)
-        { Debug.Log("HELLO"); }
     }
 
     public void OnDrop(PointerEventData eventData)
