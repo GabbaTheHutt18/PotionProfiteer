@@ -32,20 +32,20 @@ public class InventoryManager : MonoBehaviour
         
     }
 
-    public void RemoveItem(GameObject item)
+    public void RemoveItem(GameObject item, Transform parent, bool active)
     {
         Debug.Log(item);
         float posx = transform.parent.position.x + Random.Range(-2f, 2f);
         float posy = transform.parent.position.y + Random.Range(-2f, 2f);
 
         HandBag.Remove(item);
-        Transform PlayerT = item.transform.parent.parent;
-        item.transform.parent = transform.root.parent;
+        
+        item.transform.parent = parent;
         item.transform.position = new Vector3(posx, posy, -1);
-        item.SetActive(true);
+        item.SetActive(active);
     }
-    
-    void ToggleInventoryVisibility() // Moves the grid to be in or out of frame depending on visibility toggle
+
+    public void ToggleInventoryVisibility() // Moves the grid to be in or out of frame depending on visibility toggle
     {
         GameObject gridElem = GameObject.Find("INV_Grid");
 
