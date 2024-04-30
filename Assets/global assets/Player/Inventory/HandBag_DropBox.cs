@@ -7,32 +7,27 @@ using UnityEngine.EventSystems;
 public class HandBag_DropBox : MonoBehaviour, IDropHandler
 {
     [SerializeField] private InventoryManager inventoryManager;
-    [SerializeField] public int Main = 0;
-    private int counter;
     public void OnDrop(PointerEventData eventData) {
 
         ItemSlotScript droppedItem = eventData.pointerDrag.GetComponent<ItemSlotScript>();
         GameObject itemref = droppedItem.referenceObj;
 
+<<<<<<< HEAD
         WagonManager wagonManager = GameObject.Find("TriggerBox-A").GetComponent<WagonManager>();
 
 
         if (Main == 0) 
+=======
+        if (itemref != null) 
+>>>>>>> parent of ef3fa3d (Merge pull request #10 from GabbaTheHutt18/Merge_2-joe)
         {
-            if (itemref != null)
-            {
-                inventoryManager.RemoveItem(itemref, transform.root.parent, true);
-                droppedItem.Reset();
-                Debug.Log("Item Dropped!");
-            }
-            else
-            {
-                Debug.Log("twat");
-            }
+            inventoryManager.RemoveItem(itemref);
+            droppedItem.Reset();
+            Debug.Log("Item Dropped!");
         }
-        
-        if (Main == 1) 
+        else
         {
+<<<<<<< HEAD
             if (itemref != null && counter <= 15)
             {
                 inventoryManager.RemoveItem(itemref, GameObject.Find("TriggerBox-A").transform, false);
@@ -45,6 +40,9 @@ public class HandBag_DropBox : MonoBehaviour, IDropHandler
             {
                 Debug.Log("Wagon is Full!");
             }
+=======
+            Debug.Log("twat");
+>>>>>>> parent of ef3fa3d (Merge pull request #10 from GabbaTheHutt18/Merge_2-joe)
         }
     }
 }

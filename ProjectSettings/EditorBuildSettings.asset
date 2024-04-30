@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 4753853bc42951f47aec3ac0d78f8d63
+<<<<<<< HEAD
   - enabled: 1
     path: Assets/Scenes/Outside.unity
     guid: 3fbb84b89f6244f4fa6a3388823a339f
+=======
+>>>>>>> parent of ef3fa3d (Merge pull request #10 from GabbaTheHutt18/Merge_2-joe)
   m_configObjects: {}
