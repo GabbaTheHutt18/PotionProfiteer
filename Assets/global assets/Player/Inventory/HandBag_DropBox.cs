@@ -14,8 +14,6 @@ public class HandBag_DropBox : MonoBehaviour, IDropHandler
         ItemSlotScript droppedItem = eventData.pointerDrag.GetComponent<ItemSlotScript>();
         GameObject itemref = droppedItem.referenceObj;
 
-        WagonManager wagonManager = GameObject.Find("TriggerBox-A").GetComponent<WagonManager>();
-
 
         if (Main == 0) 
         {
@@ -33,6 +31,7 @@ public class HandBag_DropBox : MonoBehaviour, IDropHandler
         
         if (Main == 1) 
         {
+            WagonManager wagonManager = GameObject.Find("TriggerBox-A").GetComponent<WagonManager>();
             if (itemref != null && counter <= 15)
             {
                 inventoryManager.RemoveItem(itemref, GameObject.Find("TriggerBox-A").transform, false);
