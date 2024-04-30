@@ -22702,16 +22702,6 @@ Tilemap:
   m_GameObject: {fileID: 1647430516}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: -34, y: -1, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 74
-      m_TileSpriteIndex: 74
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -33, y: -1, z: 0}
     second:
       serializedVersion: 2
@@ -42352,7 +42342,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 574
+  - m_RefCount: 573
     m_Data: {fileID: 11400000, guid: 315738ab9cc5dbf4d902d7c7692c9e61, type: 2}
   - m_RefCount: 116
     m_Data: {fileID: 11400000, guid: bb6e15a60965e2a41bd664a82bd70449, type: 2}
@@ -42553,7 +42543,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 574
+  - m_RefCount: 573
     m_Data: {fileID: 2103894200, guid: 9cc4e57b366c179459cc42415f7c837d, type: 3}
   - m_RefCount: 116
     m_Data: {fileID: -1262779355, guid: 76d7b3a715aea3044abcc3c24b0b073f, type: 3}
@@ -42606,7 +42596,7 @@ Tilemap:
   - m_RefCount: 11
     m_Data: {fileID: -674793383, guid: 76d7b3a715aea3044abcc3c24b0b073f, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 1950
+  - m_RefCount: 1949
     m_Data:
       e00: 1
       e01: 0
@@ -42625,7 +42615,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 1950
+  - m_RefCount: 1949
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -42695,6 +42685,10 @@ CompositeCollider2D:
       - X: -340000000
         Y: 480000000
       - X: -340000000
+        Y: 0
+      - X: -330000000
+        Y: 0
+      - X: -330000000
         Y: -10000000
       - X: 280000000
         Y: -10000000
@@ -42751,7 +42745,9 @@ CompositeCollider2D:
     - - {x: 27.999971, y: -1}
       - {x: 27.999971, y: 48}
       - {x: -34, y: 47.999973}
-      - {x: -33.999973, y: -1}
+      - {x: -33.999973, y: 0}
+      - {x: -33, y: -0.0000294}
+      - {x: -32.999973, y: -1}
     - - {x: 2, y: 3.0000293}
       - {x: -2, y: 3.0000293}
       - {x: -2.0000293, y: 9}
