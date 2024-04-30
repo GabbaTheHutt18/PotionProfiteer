@@ -11,6 +11,7 @@ public class CreatureCode : MonoBehaviour
     Vector3 target;
     Vector3 alt_target;
     private int mode;
+    Animator animator;
     
     void End_Timer()
     {
@@ -33,28 +34,49 @@ public class CreatureCode : MonoBehaviour
 
     void Move()
     {
+        animator.SetFloat("multiplier", 2);
         if (mode == 0)
         {
             transform.position = Vector3.MoveTowards(transform.position, target, 1.5f * Time.deltaTime);
+            if (target.x < transform.position.x)
+            {
+                animator.SetBool("Right/Left", true);
+            }
+            else
+            {
+                animator.SetBool("Right/Left", false);
+            }
         }
         else if (mode == 1)
         {
             transform.position = Vector3.MoveTowards(transform.position, alt_target, 1.5f * Time.deltaTime);
+            if (alt_target.x < transform.position.x)
+            {
+                animator.SetBool("Right/Left", true);
+            }
+            else
+            {
+                animator.SetBool("Right/Left", false);
+            }
         }
+
         
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
         target = transform.position;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Idle == true && timer == false)
-        {           
+        {
+            animator.SetFloat("multiplier", 0);
             if (transform.position == target || transform.position == alt_target)
             {
                 DefineTarget();

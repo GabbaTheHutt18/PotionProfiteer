@@ -7,20 +7,43 @@ using UnityEngine.EventSystems;
 public class HandBag_DropBox : MonoBehaviour, IDropHandler
 {
     [SerializeField] private InventoryManager inventoryManager;
+    [SerializeField] public int Main = 0;
+    private int counter;
     public void OnDrop(PointerEventData eventData) {
 
         ItemSlotScript droppedItem = eventData.pointerDrag.GetComponent<ItemSlotScript>();
         GameObject itemref = droppedItem.referenceObj;
 
-        if (itemref != null) 
+
+        if (Main == 0) 
         {
-            inventoryManager.RemoveItem(itemref);
-            droppedItem.Reset();
-            Debug.Log("Item Dropped!");
+            if (itemref != null)
+            {
+                inventoryManager.RemoveItem(itemref, transform.root.parent, true);
+                droppedItem.Reset();
+                Debug.Log("Item Dropped!");
+            }
+            else
+            {
+                Debug.Log("twat");
+            }
         }
-        else
+        
+        if (Main == 1) 
         {
-            Debug.Log("twat");
+            WagonManager wagonManager = GameObject.Find("TriggerBox-A").GetComponent<WagonManager>();
+            if (itemref != null && counter <= 15)
+            {
+                inventoryManager.RemoveItem(itemref, GameObject.Find("TriggerBox-A").transform, false);
+                wagonManager.Transfer(itemref);
+                droppedItem.Reset();
+                counter++;
+                
+            }
+            else
+            {
+                Debug.Log("Wagon is Full!");
+            }
         }
     }
 }

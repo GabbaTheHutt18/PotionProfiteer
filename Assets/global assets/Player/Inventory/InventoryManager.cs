@@ -11,6 +11,7 @@ public class InventoryManager : MonoBehaviour
     private bool visible = false; // Toggle to define if the canvas is visible or not
     [SerializeField] private AnimationClip anim_in;
     [SerializeField] private AnimationClip anim_out;
+    [SerializeField] private bool on_off = true;
 
     public void AddItem(GameObject item) // Add's item to Inventory UI
     {
@@ -32,31 +33,31 @@ public class InventoryManager : MonoBehaviour
         
     }
 
-    public void RemoveItem(GameObject item)
+    public void RemoveItem(GameObject item, Transform parent, bool active)
     {
         Debug.Log(item);
         float posx = transform.parent.position.x + Random.Range(-2f, 2f);
         float posy = transform.parent.position.y + Random.Range(-2f, 2f);
 
         HandBag.Remove(item);
-        Transform PlayerT = item.transform.parent.parent;
-        item.transform.parent = transform.root.parent;
+        
+        item.transform.parent = parent;
         item.transform.position = new Vector3(posx, posy, -1);
-        item.SetActive(true);
+        item.SetActive(active);
     }
-    
-    void ToggleInventoryVisibility() // Moves the grid to be in or out of frame depending on visibility toggle
+
+    public void ToggleInventoryVisibility() // Moves the grid to be in or out of frame depending on visibility toggle
     {
         GameObject gridElem = GameObject.Find("INV_Grid");
 
-        if (visible == false)
+        if (visible == false && on_off == true)
         {
             //gridElem.GetComponent<RectTransform>().localPosition = new Vector3(-690f, -4f, 0f);
             gridElem.GetComponent<Animation>().clip = anim_in;
             gridElem.GetComponent<Animation>().Play();
             visible = true;
         }
-        else if (visible == true)
+        else if (visible == true && on_off == true)
         {
             //gridElem.GetComponent<RectTransform>().localPosition = new Vector3(-1300f, -4f, 0f);
             gridElem.GetComponent<Animation>().clip = anim_out;
