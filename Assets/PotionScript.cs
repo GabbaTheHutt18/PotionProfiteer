@@ -12,11 +12,34 @@ public class PotionScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public Potion _Potion;
     public TMP_Text text;
     public Vector2 PotionType;
+    public int potionID;
+    public Sprite Potion1;
+    public Sprite Potion2;
+    public Sprite Potion3;
+    public Sprite Potion4;
     // Start is called before the first frame update
     void Start()
     {
         PotionType = _Potion.PotionStats;
+        potionID = _Potion.ID;
         text.text = PotionType.ToString();
+        switch (potionID)
+        {
+            case 0:
+                image.sprite = Potion1;
+                break;
+            case 1:
+                image.sprite = Potion2;
+                break;
+            case 2:
+                image.sprite = Potion3;
+                break;
+            case 3:
+                image.sprite = Potion4;
+                break;
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame

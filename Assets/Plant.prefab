@@ -28,8 +28,8 @@ RectTransform:
   m_GameObject: {fileID: 2283272958664400530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.6, z: 0.125}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -59,14 +59,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.44118515, g: 1, b: 0.3066038, a: 1}
+  m_Color: {r: 1, g: 0.9481132, b: 0.9481132, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0c5fec97b4adbe34e80668077b907f89, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 169222358d9b9e0419c6408c8f747964, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -91,4 +91,13 @@ MonoBehaviour:
   ParentAfterDrag: {fileID: 0}
   image: {fileID: 8656217664516771201}
   PlantType: 0
-  SpeedsSprite: {fileID: 0}
+  firePlant: {fileID: 21300000, guid: 169222358d9b9e0419c6408c8f747964, type: 3}
+  herbPlant: {fileID: 21300000, guid: 3518c65731cd5a74fbb6cfc038ba319f, type: 3}
+  icePlant: {fileID: 21300000, guid: 84586043239f0cd459c6bbb991cf304c, type: 3}
+  cavePlant: {fileID: 21300000, guid: 967119d56ae80d14cbdcd5ae54f56639, type: 3}
+  fireSeed: {fileID: 21300000, guid: 4483e20519bad0f4092f27b4196049ca, type: 3}
+  herbSeed: {fileID: 21300000, guid: 222dea7207a50f941ae075626ebddd3b, type: 3}
+  iceSeed: {fileID: 21300000, guid: 8859f125af407074aa09887e866879b1, type: 3}
+  caveSeed: {fileID: 21300000, guid: 0a540cc852a645143bbe5755446832fb, type: 3}
+  PlantSprite: {fileID: 0}
+  SeedsSprite: {fileID: 0}

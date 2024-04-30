@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,19 +14,20 @@ public class QuestBoardManagerScript : MonoBehaviour
     public TMP_Text QuestDescription;
     public TMP_Text QuestRequirements;
     public TMP_Text QuestReward;
-    Quest ChosenQuest;
-    bool completedQuest;
+    public TMP_Text ErrorMessage;
+    public Quest ChosenQuest;
+    public bool completedQuest = false;
 
     // Start is called before the first frame update
     void Start()
     {
+       
         MainManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<MainManagerScript>();
         foreach (var item in MainManager.Quests)
         {
             Button newQuest = Instantiate(Quest,this.transform);
             newQuest.GetComponent<QuestScript>().QuestData = item;
             newQuest.GetComponent<QuestScript>().QuestTitle = QuestTitle;
-            newQuest.GetComponent<QuestScript>().QuestDescription = QuestDescription;
             newQuest.GetComponent<QuestScript>().QuestRequirements = QuestRequirements;
             newQuest.GetComponent<QuestScript>().QuestReward = QuestReward;
             
@@ -35,24 +37,53 @@ public class QuestBoardManagerScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void CompleteQuest()
     {
-        if (completedQuest)
+        List<Potion> RemovePotions = new List<Potion>();
+        if (completedQuest && ChosenQuest.QuestCompleted != true)
         {
-            switch (ChosenQuest.QuestTitle)
+            foreach (var item in ChosenQuest.ResourceRequirements)
             {
-                case "Quest Number 1":
-                    Debug.Log("Completed Quest1");
-                    break;
-                default:
-                    break;
+                if (MainManager.ResourceInventory[item.Key] == item.Value)
+                {
+                    MainManager.ResourceInventory[item.Key] -= item.Value;
+                }
             }
+            
+            foreach (var item in ChosenQuest.PotionRequirements)
+            {
+                foreach (var Potion in MainManager.Potions)
+                {
+                    if (Potion.ID == item.ID)
+                    {
+                        RemovePotions.Add(Potion);
+                    }
+                }
+            }
+            foreach(var item in RemovePotions)
+            {
+                MainManager.Potions.Remove(item);
+            }
+            
+            ChosenQuest.QuestCompleted = true;
+            if (ChosenQuest.RewardType == 0)
+            {
+                MainManager.Coin += ChosenQuest.CoinReward;
+            }
+            else
+            {
+                foreach (var item in ChosenQuest.ResourceReward)
+                {
+                    MainManager.ResourceInventory[item.Key] += item.Value;
+                }
+            }
+
+        }
+        else
+        {
+            ErrorMessage.gameObject.SetActive(true);
+            //enabled = false; -> can't used .enabled on TMP
         }
 
         
@@ -60,32 +91,39 @@ public class QuestBoardManagerScript : MonoBehaviour
 
     public void SelectedQuest(Quest _questData)
     {
+        ErrorMessage.gameObject.SetActive(false);
         completedQuest = false;
-       int num =  _questData.QuestRequirements.Count;
-        foreach (var item in _questData.QuestRequirements)
+        int num = -1;
+        completedQuest = false;
+        if (_questData.ResourceRequirements.Count != 0)
         {
-            //MainManager.ResourceInventory[item.Key]
-            foreach (var j in MainManager.ResourceInventory)
+            num = _questData.ResourceRequirements.Count;
+            foreach (var item in _questData.ResourceRequirements)
             {
-                if (item.Key == j.Key)
+                if (MainManager.ResourceInventory[item.Key] == item.Value)
                 {
-                    if (item.Value <= j.Value)
-                    {
-                        Debug.Log("Match");
-                        num -= 1;
-                    }
-                    else
-                    {
-                        Debug.Log("Not sufficient");
-                    }
+                    num -= 1;
                 }
-
             }
         }
+        else
+        {
+            num = _questData.PotionRequirements.Count;
+            foreach (var item in _questData.PotionRequirements)
+            {
+                foreach (var Potion in MainManager.Potions)
+                {
+                    if (Potion.ID == item.ID)
+                    {
+                        num -= 1;
+                    }
+                }
+            }
+        }
+
         ChosenQuest = _questData;
         if (num == 0)
         {
-            
             completedQuest = true;
         }
 
